@@ -13,7 +13,7 @@
 | :--- | :---: | :---: | :--- |
 | **[`PRESENTACION_PRODUCTO_NIVEL1.md`](PRESENTACION_PRODUCTO_NIVEL1.md)** | **Nivel 1** | **Completado (100%)** | Documento maestro con todo el contenido, argumentos detallados, citas normativas, justificación clínica, evidencia experimental de hardware y corridas financieras completas. |
 | **[`INSTRUCCIONES_PRESENTACION.md`](INSTRUCCIONES_PRESENTACION.md)** | **Metodología** | **Completado (100%)** | Guía metodológica que explica el flujo de trabajo entre Nivel 1 y Nivel 2, los 5 bloques temáticos y las pautas para derivar diapositivas. |
-| **`DIAPOSITIVAS_NIVEL2.md`** | **Nivel 2** | *Siguiente Paso* | Guion y contenido sintético para las diapositivas de la presentación (titulares, viñetas visuales, datos clave y notas de orador). |
+| **[`DIAPOSITIVAS_NIVEL2.md`](DIAPOSITIVAS_NIVEL2.md)** | **Nivel 2** | **En Progreso (Puntos 1 y 2 en 6 diapositivas)** | Guion y contenido sintético para las diapositivas de la presentación (titulares, viñetas visuales, datos clave y notas de orador). |
 
 ---
 
