@@ -1,234 +1,229 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f6c83b"><title>SpiroScan AI · Presentación en vivo</title><style>
-:root{--yellow:#f6c83b;--blue:#1d4ed8;--ink:#101318;--navy:#071827;--paper:#fafaf8;--gray:#56616e;--line:#cbd1d8;--head:Impact,'Arial Narrow','Arial Black',sans-serif;--body:'Segoe UI',Arial,sans-serif}*{box-sizing:border-box}html,body{height:100%;margin:0}body{font-family:var(--body);color:var(--ink);background:var(--paper);overflow:hidden;-webkit-font-smoothing:antialiased}button,input,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--blue);outline-offset:3px}.app{height:100dvh;min-height:430px;overflow:hidden;position:relative}.slide{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;visibility:hidden;opacity:0;pointer-events:none;background:var(--paper)}.slide.active{visibility:visible;opacity:1;pointer-events:auto}.slide.yellow{background:var(--yellow)}.slide.blue{background:var(--blue);color:#fff}.slide.dark{background:var(--navy);color:#fff}.slide-inner{min-height:100%;width:min(1600px,100%);margin:auto;padding:clamp(108px,13vh,155px) clamp(38px,6vw,105px) clamp(112px,13vh,155px);position:relative;display:flex;flex-direction:column;justify-content:center}.kicker{font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;display:flex;align-items:center;gap:13px}.kicker:before{content:"";width:30px;height:2px;background:currentColor}.title{font:900 clamp(68px,8vw,138px)/.88 var(--head);letter-spacing:-.022em;text-transform:uppercase;margin:0}.title.mid{font-size:clamp(61px,7vw,118px)}.title .accent{color:var(--blue)}.title .inverse{color:#fff}.title .sun{color:var(--yellow)}.intro{font-size:clamp(15px,1.4vw,19px);line-height:1.55;max-width:550px;margin:18px 0 0}.small{font-size:11px;line-height:1.5}.muted{color:#607080}.blue .muted,.dark .muted{color:#aec5da}.rule{height:1px;background:currentColor;opacity:.35}.pill{border:1px solid currentColor;padding:8px 11px;display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.dot{width:8px;height:8px;display:inline-block;border-radius:50%;background:currentColor}.primary-btn,.outline-btn{background:var(--ink);color:#fff;border:1px solid var(--ink);font-size:11px;letter-spacing:.1em;font-weight:900;text-transform:uppercase;padding:12px 16px;display:inline-flex;gap:14px;align-items:center;justify-content:center}.primary-btn:hover{background:var(--blue);border-color:var(--blue)}.outline-btn{background:transparent;color:inherit;border-color:currentColor}.outline-btn:hover{background:rgba(127,127,127,.12)}.primary-btn:disabled,.outline-btn:disabled{opacity:.35;cursor:not-allowed}.blue .primary-btn,.dark .primary-btn{background:var(--yellow);border-color:var(--yellow);color:var(--ink)}
-/* Clock and chrome */
-.header{position:absolute;z-index:30;top:0;left:0;right:0;height:77px;padding:0 clamp(25px,4.3vw,70px);display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid rgba(16,19,24,.22);color:var(--ink);transition:color .25s,border-color .25s;pointer-events:none}.header>*{pointer-events:auto}body[data-skin="blue"] .header,body[data-skin="dark"] .header{color:#fff;border-color:rgba(255,255,255,.28)}.brand{font-size:19px;font-weight:950;letter-spacing:-.06em;white-space:nowrap;display:flex;align-items:center;gap:11px}.logo{border:2px solid currentColor;width:29px;height:29px;border-radius:50%;display:grid;place-items:center;font-size:14px}.brand small{font:14px var(--head);letter-spacing:0}.connection{display:flex;align-items:center;gap:8px;font-size:10px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap}.connection .dot{background:#9099a4}.connection.live .dot{background:#21ba83;box-shadow:0 0 0 5px rgba(33,186,131,.18)}.connection.error .dot{background:#e3584e}.header-actions{display:flex;align-items:center;gap:12px}.header-actions button{background:none;border:0;color:inherit;padding:8px 0;text-transform:uppercase;font-size:10px;font-weight:900;letter-spacing:.1em}.header-actions button:hover{text-decoration:underline;text-underline-offset:5px}.footer{position:absolute;z-index:30;bottom:0;left:0;right:0;height:87px;padding:0 clamp(25px,4.3vw,70px);border-top:1px solid rgba(16,19,24,.22);display:flex;align-items:center;gap:16px;color:var(--ink);transition:color .25s,border-color .25s}body[data-skin="blue"] .footer,body[data-skin="dark"] .footer{color:#fff;border-color:rgba(255,255,255,.28)}.step-no{font:25px var(--head);white-space:nowrap}.step-no span{opacity:.45}.timer{display:flex;align-items:center;gap:11px;min-width:145px}.timer-ring{width:44px;height:44px;transform:rotate(-90deg)}.timer-ring circle{fill:none;stroke:currentColor;stroke-width:4;opacity:.22}.timer-ring circle:last-child{opacity:1;stroke:var(--blue);stroke-dasharray:100;stroke-dashoffset:0;transition:stroke-dashoffset .15s linear}body[data-skin="blue"] .timer-ring circle:last-child,body[data-skin="dark"] .timer-ring circle:last-child{stroke:var(--yellow)}.time-value{font:28px var(--head);letter-spacing:.02em}.time-value small{display:block;font:9px var(--body);font-weight:800;letter-spacing:.1em;text-transform:uppercase}.timer-control{background:none;border:1px solid currentColor;color:inherit;padding:8px 10px;font-size:10px;font-weight:850;text-transform:uppercase;letter-spacing:.07em;white-space:nowrap}.timeline{display:flex;flex:1;gap:5px;min-width:40px}.timeline i{flex:1;height:4px;background:currentColor;opacity:.25}.timeline i.past{opacity:1}.timeline i.active{opacity:1;background:var(--blue)}body[data-skin="blue"] .timeline i.active,body[data-skin="dark"] .timeline i.active{background:var(--yellow)}.foot-nav{display:flex;gap:4px}.foot-nav button{width:34px;height:35px;border:0;background:none;color:inherit;font-size:24px}.foot-nav button:disabled{opacity:.25}.wipe{position:absolute;inset:0;z-index:25;background:var(--yellow);pointer-events:none;transform:translateX(-102%)}.wipe.forward{animation:wipe-right .78s cubic-bezier(.76,0,.24,1) both}.wipe.backward{animation:wipe-left .78s cubic-bezier(.76,0,.24,1) both}@keyframes wipe-right{0%{transform:translateX(-102%)}47%,53%{transform:translateX(0)}100%{transform:translateX(102%)}}@keyframes wipe-left{0%{transform:translateX(102%)}47%,53%{transform:translateX(0)}100%{transform:translateX(-102%)}}.slide.active .reveal{animation:rise .8s cubic-bezier(.16,1,.3,1) both;animation-delay:var(--d,0s)}.slide.active .draw{stroke-dasharray:1500;stroke-dashoffset:1500;animation:draw 2.2s forwards;animation-delay:var(--d,.3s)}@keyframes rise{from{opacity:0;transform:translateY(42px)}to{opacity:1;transform:translateY(0)}}@keyframes draw{to{stroke-dashoffset:0}}@keyframes breathe{50%{transform:scale(1.08);opacity:.6}}@keyframes shimmer{from{transform:translateX(-120%)}to{transform:translateX(120%)}}
-/* Act 1 */
-.problem .slide-inner{display:grid;grid-template-columns:1fr .66fr;gap:5vw;align-items:center}.problem .title{font-size:clamp(77px,8.3vw,143px);margin:30px 0}.problem .intro{max-width:510px}.problem-list{border-top:2px solid var(--ink)}.problem-list div{display:grid;grid-template-columns:44px 1fr;gap:15px;padding:21px 0;border-bottom:1px solid rgba(16,19,24,.45)}.problem-list b{font:27px var(--head);color:var(--blue)}.problem-list strong{display:block;font-size:17px;letter-spacing:-.04em}.problem-list p{font-size:12px;line-height:1.5;margin:6px 0 0;max-width:320px}.problem-tail{margin-top:25px;font:30px var(--head);letter-spacing:.01em;text-transform:uppercase}.big-question{position:absolute;right:3%;top:17%;font:clamp(230px,29vw,480px)/1 var(--head);opacity:.055;pointer-events:none}
-/* Live slides */
-.scan .slide-inner{justify-content:space-between}.scan-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px}.scan .title{font-size:clamp(70px,7.8vw,130px);margin:18px 0 0}.scan-head .intro{max-width:335px;font-size:14px;margin-bottom:4px}.scan-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:26px;align-items:stretch;margin:20px 0}.photo{position:relative;min-height:280px;max-height:360px;overflow:hidden;background:#ced4db}.photo img{width:100%;height:100%;object-fit:cover;object-position:center 44%;position:absolute;inset:0}.photo:after{content:"";position:absolute;inset:30% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.6))}.photo-caption{position:absolute;z-index:1;bottom:16px;left:17px;right:17px;color:white;font-size:10px;font-weight:850;letter-spacing:.07em;line-height:1.4;text-transform:uppercase}.live-panel{border:2px solid currentColor;padding:23px;display:flex;flex-direction:column;justify-content:space-between;position:relative;min-height:280px}.live-panel .panel-topline{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.12em}.panel-topline span:last-child{opacity:.6}.live-values{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}.value{border-top:1px solid currentColor;padding-top:9px;min-width:0}.value label{display:block;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;opacity:.65}.value strong{display:block;margin-top:7px;font:clamp(29px,3.2vw,54px)/1 var(--head);white-space:nowrap}.value strong small{font:10px var(--body);letter-spacing:0}.panel-status{font-size:12px;line-height:1.45;min-height:20px;margin:14px 0 0}.scan-controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}.focus-select{border:1px solid currentColor;color:inherit;background:transparent;padding:11px;font-size:11px;font-weight:800;min-width:150px}.focus-select option{color:#101318}.scan-bottom{display:flex;align-items:start;gap:25px;justify-content:space-between;border-top:1px solid currentColor;padding-top:15px}.scan-bottom strong{font-size:12px;text-transform:uppercase;letter-spacing:.1em}.scan-bottom p{font-size:11px;line-height:1.5;margin:5px 0 0;max-width:600px}.scan-bottom .small{max-width:285px}.blue .photo{border:2px solid white}.blue .live-panel{border-color:white}.blue .focus-select{color:white}.heart-mark{position:absolute;right:7%;top:27%;font-size:120px;opacity:.06;pointer-events:none}.device-indicator{display:inline-flex;align-items:center;gap:7px}.device-indicator .dot{background:#9babb8}.device-indicator.live .dot{background:#20b980}
-/* Act 4 */
-.ai .slide-inner{justify-content:space-between}.ai .title{font-size:clamp(66px,7.3vw,125px);margin:19px 0}.ai .intro{max-width:850px}.ai-flow{display:grid;grid-template-columns:repeat(4,1fr);border-top:3px solid var(--ink);margin-top:27px}.ai-flow div{position:relative;padding:21px 15px 15px 0}.ai-flow div:not(:last-child):after{content:'→';position:absolute;right:12px;top:19px;font-size:22px;color:var(--blue)}.ai-flow b{font:32px var(--head);color:var(--blue)}.ai-flow strong{display:block;font-size:14px;text-transform:uppercase;letter-spacing:.05em;margin:10px 0}.ai-flow p{font-size:11px;line-height:1.45;max-width:200px;margin:0}.ai-lower{border-top:1px solid #adb5bd;padding-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:25px}.ai-lower strong{display:block;font:35px var(--head)}.ai-lower p{font-size:12px;line-height:1.5;margin:7px 0}.ai-lower button{margin-top:8px}.assessment{display:block;font-size:11px;line-height:1.5;margin-top:8px;color:var(--blue);min-height:32px;max-height:75px;overflow:auto}
-/* Act 5 */
-.business .slide-inner{justify-content:space-between}.business .title{font-size:clamp(70px,8.2vw,135px);margin:18px 0}.business .intro{max-width:700px;font-size:14px}.money-grid{display:grid;grid-template-columns:.8fr 1fr 1fr;gap:22px;margin-top:16px}.money{border-top:3px solid var(--ink);padding-top:12px}.money label{font-size:10px;letter-spacing:.13em;font-weight:900;text-transform:uppercase}.money strong{display:block;font:clamp(58px,6.6vw,108px)/1 var(--head);letter-spacing:-.04em;color:var(--blue);margin-top:9px}.money p{font-size:11px;line-height:1.45;margin:8px 0 0}.plan-row{border-top:1px solid rgba(16,19,24,.6);border-bottom:1px solid rgba(16,19,24,.6);padding:11px 0;display:flex;gap:12px;justify-content:space-between;font-size:11px;font-weight:750;flex-wrap:wrap;margin-top:14px}.business-bottom{display:grid;grid-template-columns:.8fr 1.2fr;gap:25px;margin-top:16px}.business-bottom strong{display:block;font:28px var(--head);text-transform:uppercase}.business-bottom p{font-size:11px;line-height:1.5;margin:6px 0 0}
-/* overlays */
-.overlay{position:fixed;inset:0;z-index:70;background:rgba(3,14,27,.82);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:19px}.overlay.open{display:flex}.modal{width:min(720px,100%);max-height:89vh;overflow-y:auto;background:var(--paper);color:var(--ink);padding:clamp(22px,3vw,38px);box-shadow:10px 10px 0 var(--yellow)}.modal.wide{width:min(820px,100%)}.modal-head{display:flex;justify-content:space-between;gap:20px;align-items:start;margin-bottom:20px}.modal h2{font:45px/1 var(--head);text-transform:uppercase;margin:9px 0 0}.close{width:38px;height:38px;background:none;border:1px solid var(--ink);font-size:24px;line-height:1}.modal p,.modal li{font-size:13px;line-height:1.55;color:#495360}.modal h3{font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin:20px 0 7px}.modal label{display:block;font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin:13px 0 5px}.modal input,.modal textarea{width:100%;background:#fff;border:1px solid #b5bec8;padding:11px;color:var(--ink);font-size:13px;border-radius:0}.modal textarea{min-height:63px;resize:vertical;font-family:monospace}.modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}.modal-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.modal .hint{font-size:11px;color:#667381;line-height:1.5}.log{background:#ecf0f3;border-left:3px solid var(--blue);padding:10px 13px;margin-top:15px;font:11px/1.5 monospace;white-space:pre-wrap;word-break:break-word;min-height:42px}.index-list{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.index-list button{border:1px solid #c4cbd3;background:#fff;text-align:left;padding:15px;color:var(--ink)}.index-list button:hover{border-color:var(--blue)}.index-list button b{font:24px var(--head);color:var(--blue);display:block}.index-list button span{font-size:12px;font-weight:850;text-transform:uppercase}.toast{position:fixed;z-index:100;bottom:100px;left:50%;transform:translate(-50%,10px);opacity:0;pointer-events:none;background:var(--ink);color:white;border:2px solid var(--yellow);padding:12px 17px;font-size:12px;max-width:90vw;text-align:center;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}
-@media(max-width:900px){.scan-grid{grid-template-columns:.55fr 1.45fr}.photo{max-height:310px}.problem .title{font-size:clamp(67px,8vw,110px)}.money strong{font-size:clamp(52px,6.2vw,80px)}}
-@media(max-width:730px){.slide-inner{padding:100px 24px 108px;justify-content:flex-start!important}.header{height:68px;padding:0 18px}.footer{height:76px;padding:0 18px;gap:9px}.brand{font-size:15px}.brand small{font-size:11px}.logo{width:24px;height:24px}.connection{font-size:0}.connection .dot{width:10px;height:10px}.header-actions{gap:8px}.header-actions button{font-size:9px}.header-actions .mobile-hide{display:none}.step-no{font-size:20px}.time-value{font-size:22px}.timer{min-width:95px;gap:5px}.timer-ring{width:33px;height:33px}.timer-control{font-size:9px;padding:6px}.timeline{gap:2px}.foot-nav button{width:24px;font-size:20px}.problem .slide-inner{display:flex;flex-direction:column;align-items:stretch;gap:30px}.problem .title,.scan .title,.ai .title,.business .title{font-size:clamp(60px,11.7vw,96px)}.problem-list div{padding:12px 0}.problem-tail{margin-top:14px}.scan-head{display:block}.scan-head .intro{margin-top:12px;max-width:570px}.scan-grid{grid-template-columns:1fr;gap:12px}.photo{min-height:200px;max-height:230px}.photo img{object-position:center 45%}.live-panel{min-height:235px;padding:16px}.scan-bottom{display:block}.scan-bottom .small{margin-top:8px}.ai-flow{grid-template-columns:repeat(2,1fr)}.ai-flow div{padding:12px 10px 12px 0}.ai-flow b{font-size:24px}.ai-flow strong{font-size:12px;margin:5px 0}.ai-flow p{font-size:10px}.ai-lower{margin-top:12px}.money-grid{gap:10px}.money strong{font-size:clamp(49px,8vw,74px)}.money p{font-size:10px}.business-bottom{gap:12px}}
-@media(max-width:480px){.header-actions button:nth-child(2){display:none}.slide-inner{padding:93px 19px 102px}.problem .title,.scan .title,.ai .title,.business .title{font-size:clamp(53px,12.8vw,70px)}.intro{font-size:14px}.problem-list strong{font-size:14px}.problem-list p{font-size:11px}.scan .title{margin-top:12px}.scan-grid{margin:14px 0}.photo{min-height:170px;max-height:180px}.live-values{gap:7px}.value strong{font-size:29px}.value label{font-size:8px}.live-panel{min-height:215px}.scan-controls{gap:6px}.focus-select,.primary-btn,.outline-btn{padding:9px;font-size:9px}.ai-flow p{font-size:9px}.ai-lower{grid-template-columns:1fr;gap:8px}.ai-lower strong{font-size:26px}.money-grid{grid-template-columns:1fr 1fr}.money:first-child{grid-column:1/-1}.money strong{font-size:55px}.money:first-child strong{font-size:70px}.money p{margin-top:2px}.business-bottom{grid-template-columns:1fr}.business-bottom strong{font-size:23px}.modal-grid,.index-list{grid-template-columns:1fr}.modal h2{font-size:34px}.time-value small{font-size:7px}}
-@media(max-height:800px) and (min-width:731px){.slide-inner{padding-top:91px;padding-bottom:98px}.problem .title{font-size:clamp(65px,7vw,105px);margin:17px 0}.problem-list div{padding:14px 0}.problem-tail{margin-top:14px}.scan .title{font-size:clamp(60px,6.5vw,100px);margin-top:10px}.scan-grid{margin:12px 0}.photo{max-height:255px;min-height:245px}.live-panel{min-height:245px;padding:15px}.scan-bottom{padding-top:10px}.ai .title{font-size:clamp(60px,6.4vw,98px);margin:10px 0}.ai-flow{margin-top:15px}.ai-flow div{padding-top:12px;padding-bottom:9px}.ai-lower{padding-top:10px}.business .title{font-size:clamp(64px,6.6vw,105px);margin:9px 0}.business .intro{margin-top:7px}.money-grid{margin-top:10px}.money strong{font-size:clamp(50px,5.7vw,82px)}.money p{margin:4px 0 0}.plan-row{margin-top:8px;padding:8px 0}.business-bottom{margin-top:9px}.business-bottom strong{font-size:24px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
-
-/* Refinamiento minimalista: sin navegación superior, solo controles esenciales */
-.slide-inner{padding-top:clamp(52px,7vh,86px);padding-bottom:clamp(92px,11vh,125px)}
-.footer{height:64px;padding-inline:clamp(24px,4vw,64px);gap:18px;border-top:1px solid rgba(16,19,24,.35);background:var(--paper)}body[data-skin="yellow"] .footer{background:var(--yellow)}body[data-skin="blue"] .footer{background:var(--blue)}body[data-skin="dark"] .footer{background:var(--navy)}
-body[data-skin="blue"] .footer,body[data-skin="dark"] .footer{border-color:rgba(255,255,255,.32)}
-.step-no{font-size:20px}.timer{min-width:118px;gap:8px}.timer-ring{width:32px;height:32px}.time-value{font-size:22px}.time-value small{font-size:8px}
-.timer-control{border:0;padding:6px 2px;font-size:9px;letter-spacing:.11em;background:transparent}.timer-control:hover,.api-button:hover,.full-button:hover{opacity:.55}
-.timeline{gap:4px}.timeline i{height:2px}
-.api-button,.full-button{background:none;border:0;color:inherit;padding:7px 3px}.api-button .connection{font-size:9px;letter-spacing:.09em}.api-button .dot{width:7px;height:7px}.full-button{font-size:19px}.foot-nav button{font-size:21px;width:27px;height:30px}
-.problem .slide-inner{gap:7vw}.problem-list{border-top-width:1px}.problem-list div{border-bottom-color:rgba(16,19,24,.27)}.problem-tail{font-size:23px}.big-question,.heart-mark{display:none}
-.scan-grid{gap:35px}.photo{max-height:315px;min-height:265px;background:#e6e8ea}.photo img{filter:grayscale(65%);transition:filter .4s}.photo:hover img{filter:grayscale(0)}.photo:after{background:linear-gradient(transparent,rgba(0,0,0,.48))}.photo-caption{font-size:9px;font-weight:700}.blue .photo{border:0}
-.live-panel{border:0;border-top:2px solid currentColor;border-bottom:1px solid currentColor;padding:16px 0;min-height:265px}.panel-topline{opacity:.75}.live-values{gap:20px}.value{border-top-color:rgba(127,127,127,.45)}.scan-bottom{border-top-color:rgba(127,127,127,.45)}
-.focus-select,.outline-btn{border-width:1px}.ai-flow{border-top-width:1px}.ai-lower{border-top-color:rgba(127,127,127,.45)}.money{border-top-width:1px}.plan-row{border-top-color:rgba(16,19,24,.35);border-bottom-color:rgba(16,19,24,.35)}
-@media(max-width:730px){.slide-inner{padding:53px 23px 91px}.footer{height:63px;padding:0 14px;gap:9px}.step-no{font-size:17px}.timer{min-width:83px;gap:4px}.timer-ring{width:28px;height:28px}.time-value{font-size:19px}.time-value small{font-size:7px}.timer-control{font-size:8px}.api-button .connection span:last-child{display:none}.api-button .dot{width:9px;height:9px}.foot-nav button{width:23px;font-size:18px}.full-button{font-size:16px}.scan-grid{gap:14px}.photo{max-height:195px;min-height:180px}.live-panel{min-height:205px;padding:12px 0}.problem-tail{font-size:20px}}
-@media(max-width:480px){.slide-inner{padding:48px 19px 88px}.footer{gap:6px}.timeline{gap:2px}.step-no{font-size:15px}.timer-control{font-size:0}.timer-control:after{content:'Ⅱ';font-size:13px}.timer-control.paused:after{content:"▶"}.api-button{padding:5px}.full-button{display:none}.photo{min-height:150px;max-height:165px}.live-panel{min-height:195px}}
-
-/* Tipografía de escenario: una idea grande por acto */
-.title{letter-spacing:0;line-height:.92}.yellow .title .inverse{color:#103a8c}
-.intro{font-size:clamp(21px,1.85vw,29px);line-height:1.32;max-width:690px;font-weight:600}
-.problem-list strong{font-size:clamp(23px,2.1vw,34px);line-height:1.1;font-weight:900;text-transform:uppercase}
-.problem-list div{padding:22px 0;align-items:center}.problem-list b{font-size:32px}.problem-tail{font-size:clamp(24px,2.2vw,33px)}
-.scan-head .intro{font-size:clamp(18px,1.55vw,24px);line-height:1.35;max-width:390px;font-weight:650}
-.value label{font-size:12px}.value strong{font-size:clamp(40px,4vw,67px)}.panel-status{font-size:15px;font-weight:650}
-.scan-bottom strong{font-size:17px;letter-spacing:.04em}.scan-bottom p{font-size:15px;line-height:1.35}.scan-bottom .small{font-size:12px}
-.ai-flow strong{font-size:clamp(19px,1.65vw,26px);letter-spacing:0}.ai-flow p{font-size:15px;line-height:1.25}.ai-flow b{font-size:36px}
-.ai-lower strong{font-size:clamp(36px,3.3vw,55px)}.ai-lower p{font-size:16px;line-height:1.35}
-.money label{font-size:13px}.money p{font-size:17px;font-weight:650}.business-bottom strong{font-size:clamp(30px,3vw,48px)}.business-bottom p{font-size:17px;font-weight:650}
-@media(max-width:900px){.scan-head .intro{font-size:17px}.problem-list strong{font-size:23px}.ai-flow p{font-size:13px}}
-@media(max-width:730px){.intro{font-size:20px}.scan-head .intro{font-size:18px}.problem-list div{padding:14px 0}.problem-list strong{font-size:20px}.scan-bottom strong{font-size:15px}.scan-bottom p{font-size:13px}.ai-flow strong{font-size:17px}.ai-flow p{font-size:12px}.ai-lower strong{font-size:35px}.ai-lower p{font-size:14px}.money p,.business-bottom p{font-size:14px}}
-@media(max-width:480px){.intro{font-size:18px}.problem-list div{padding:11px 0}.problem-list strong{font-size:17px}.problem-tail{font-size:19px}.scan-head .intro{font-size:16px}.value strong{font-size:30px}.scan-bottom p{font-size:12px}.ai-flow strong{font-size:15px}.ai-flow p{font-size:11px}.ai-lower strong{font-size:28px}.ai-lower p{font-size:12px}.money label{font-size:11px}.money p,.business-bottom p{font-size:12px}.business-bottom strong{font-size:25px}}
-
-/* Paleta clínica por sistema: corazón, pulmón, IA y crecimiento */
-.problem{background:#eff4ff}.heart{background:#fff3f6}.lung{background:#eaf7fc;color:#102b3c}.ai{background:#f5f3ff}.business{background:#e9f7ef}
-.problem .kicker,.problem .problem-list b,.problem .title .inverse{color:#1d4ed8}
-.heart .kicker,.heart .title .accent,.heart .value strong{color:#be123c}
-.lung .kicker,.lung .title .sun,.lung .value strong{color:#0369a1}
-.ai .kicker,.ai .title .accent,.ai .ai-flow b,.ai .ai-lower strong{color:#6d28d9}
-.business .kicker,.business .title .inverse,.business .money strong{color:#047857}
-.heart .primary-btn{background:#be123c;border-color:#be123c;color:#fff}.heart .primary-btn:hover{background:#88102d}
-.lung .primary-btn{background:#0369a1;border-color:#0369a1;color:#fff}.lung .primary-btn:hover{background:#07547e}
-.ai .outline-btn:hover{background:#ede7fd}.business .money,.ai .ai-flow,.problem .problem-list{border-color:currentColor}
-body[data-skin="problem"] .footer{background:#eff4ff}body[data-skin="heart"] .footer{background:#fff3f6}body[data-skin="lung"] .footer{background:#eaf7fc}body[data-skin="ai"] .footer{background:#f5f3ff}body[data-skin="mint"] .footer{background:#e9f7ef}
-body[data-skin="heart"] .timer-ring circle:last-child,body[data-skin="heart"] .timeline i.active{stroke:#be123c;background:#be123c}
-body[data-skin="lung"] .timer-ring circle:last-child,body[data-skin="lung"] .timeline i.active{stroke:#0369a1;background:#0369a1}
-body[data-skin="ai"] .timer-ring circle:last-child,body[data-skin="ai"] .timeline i.active{stroke:#6d28d9;background:#6d28d9}
-body[data-skin="mint"] .timer-ring circle:last-child,body[data-skin="mint"] .timeline i.active{stroke:#047857;background:#047857}
-.module-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:37px;padding-top:17px;border-top:1px solid #9bb8e8;max-width:640px}.module-strip span{min-width:0}.module-strip b{font:clamp(18px,1.6vw,25px)/1 var(--head);color:#1e40af;display:block}.module-strip small{font-size:10px;font-weight:900;letter-spacing:.1em;color:#526987;display:block;margin-top:7px}
-.anatomy{height:min(36vh,340px);min-height:265px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}.anatomy svg{width:100%;height:100%;max-width:510px}.anatomy-label{position:absolute;left:9px;bottom:10px;display:flex;flex-direction:column;gap:3px}.anatomy-label strong{font:clamp(25px,2.5vw,39px)/1 var(--head);letter-spacing:.01em}.anatomy-label span{font-size:11px;font-weight:850;letter-spacing:.11em}.heart-figure .anatomy-label{color:#8c1431}.lung-figure .anatomy-label{color:#075d88}
-.heart .live-panel,.lung .live-panel{border-color:rgba(12,42,68,.55)}.heart .value,.lung .value{border-top-color:rgba(12,42,68,.28)}
-@media(max-height:800px) and (min-width:731px){.anatomy{height:245px;min-height:245px}.module-strip{margin-top:22px}}
-@media(max-width:730px){.module-strip{grid-template-columns:repeat(2,1fr);max-width:420px;gap:16px;margin-top:22px}.module-strip b{font-size:22px}.anatomy{height:190px;min-height:190px}.anatomy-label strong{font-size:25px}.anatomy-label span{font-size:9px}}
-@media(max-width:480px){.module-strip{gap:10px}.module-strip b{font-size:19px}.module-strip small{font-size:8px}.anatomy{height:170px;min-height:170px}.anatomy-label{bottom:1px}.anatomy-label strong{font-size:22px}}
-
-/* La pantalla pulmonar muestra zonas y audio; la cardíaca muestra PPG y SpO₂ pendiente. */
-.lung-figure .zone-dot{fill:#c5e8f4;stroke:#fff;stroke-width:3;transition:fill .25s,r .25s;filter:drop-shadow(0 0 4px rgba(255,255,255,.5))}
-.lung-figure .zone-dot.selected{fill:#f6c83b;stroke:#075b84;stroke-width:4;r:13}
-.lung .zone-reading{font-size:clamp(24px,2.5vw,40px);letter-spacing:.01em}
-.lung .scan-controls .focus-select{min-width:180px;max-width:220px}
-@media(max-width:900px){.lung .scan-controls .focus-select{min-width:155px}}
-@media(max-width:480px){.lung .zone-reading{font-size:22px}.lung .scan-controls .focus-select{min-width:130px;max-width:180px}}
-
-/* Actos desdoblados: hardware, entrenamiento, costos y comercialización */
-.prototype{background:#f4f7fb}.prototype .slide-inner,.cost .slide-inner,.pricing .slide-inner,.growth .slide-inner{justify-content:space-between}.prototype .kicker,.prototype .title .accent{color:#1d4ed8}.prototype .title{font-size:clamp(72px,8vw,134px);margin:20px 0}.prototype .intro{max-width:740px}.prototype-modules{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:24px}.prototype-modules div{border-top:2px solid #1d4ed8;padding-top:19px}.prototype-modules b{font:clamp(28px,3vw,46px)/1 var(--head);color:#153f9b;display:block}.prototype-modules span{display:block;font-size:13px;font-weight:900;letter-spacing:.13em;margin-top:10px}.prototype-route{border-top:1px solid #b7c7df;padding-top:18px;margin-top:25px;font:clamp(21px,2.25vw,35px)/1.1 var(--head);letter-spacing:.02em;color:#1e40af}.prototype-route i{font-style:normal;color:#8eaccf;padding:0 8px}
-.ai-demo-grid{display:grid;grid-template-columns:.86fr 1.14fr;gap:5vw;align-items:stretch;margin:22px 0}.training{border-top:2px solid #6d28d9}.training-head{font-size:11px;font-weight:900;letter-spacing:.1em;color:#6d28d9;padding:10px 0 3px}.training-row{display:grid;grid-template-columns:110px 1fr;gap:10px;border-bottom:1px solid #c9b9e9;padding:12px 0;align-items:center}.training-row span{font-size:11px;font-weight:900;letter-spacing:.1em;color:#6d28d9}.training-row strong{font-size:16px;line-height:1.25}.assistant-row{margin-top:7px;border-top:2px solid #9d86d0}.training p{font-size:12px;line-height:1.4;color:#5b5372;margin:13px 0 0}.ai-chat{border:2px solid #6d28d9;padding:19px;display:flex;flex-direction:column;min-height:262px}.chat-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.chat-head strong{font:27px var(--head);color:#5721ae}.chat-head span{font-size:11px;font-weight:900;color:#6d28d9;white-space:nowrap}.chat-context{font-size:11px;color:#625b73;margin:5px 0}.chat-reply{flex:1;background:#fff;border-left:3px solid #a58bdf;padding:12px 15px;font-size:14px;line-height:1.35;color:#36304a;min-height:72px;max-height:105px;overflow:auto}.ai-chat form{display:flex;gap:7px;margin-top:10px}.ai-chat input{flex:1;min-width:0;padding:11px 12px;border:1px solid #b4a5d3;background:#fff;font-size:14px;color:#261a41}.ai-chat button{border:0;background:#6d28d9;color:white;font-size:11px;font-weight:900;letter-spacing:.09em;padding:10px 15px;white-space:nowrap}.ai-chat button:disabled,.ai-chat input:disabled{opacity:.5;cursor:not-allowed}.ai-chat small{font-size:10px;color:#6b6480;margin-top:7px}.ai-evidence{border-top:1px solid #a896cf;padding-top:13px;font-size:12px;font-weight:900;letter-spacing:.03em;color:#5b24aa}.ai-evidence span{padding:0 7px;color:#a58acf}.ai-evidence small{display:block;font-weight:550;color:#625b73;margin-top:6px;font-size:11px}
-.cost{background:#e9f7ef}.cost .kicker,.cost .title .accent{color:#047857}.cost .title{font-size:clamp(72px,8vw,138px);margin:22px 0}.cost-hero{border-top:2px solid #047857;padding-top:19px}.cost-hero span{font-size:13px;font-weight:900;letter-spacing:.15em}.cost-hero strong{display:block;font:clamp(125px,16vw,270px)/.92 var(--head);color:#047857;letter-spacing:-.025em;margin:14px 0}.cost-hero p{font-size:17px;line-height:1.35;max-width:620px;margin:0}.cost-foot{border-top:1px solid #a8c9b9;padding-top:15px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}.cost-foot b{font:39px var(--head);color:#047857}.cost-foot span{font-size:12px;font-weight:900;letter-spacing:.08em}.cost-foot i{font-style:normal;color:#96b8a7}
-.pricing{background:#fff9ed}.pricing .kicker,.pricing .title .accent{color:#a45c08}.pricing .title{font-size:clamp(61px,6.8vw,112px);margin:17px 0}.plans{display:grid;grid-template-columns:repeat(2,1fr);gap:17px 32px;margin:18px 0}.plan{border-top:2px solid #c98528;padding-top:12px}.plan label{font-size:12px;font-weight:900;letter-spacing:.13em}.plan strong{display:block;font:clamp(44px,4.9vw,83px)/1 var(--head);color:#a45c08;margin-top:8px}.plan strong small{font:11px var(--body);font-weight:900;letter-spacing:.1em}.plan p{font-size:21px;font-weight:800;margin:4px 0 0}.plan-foot{border-top:1px solid #d3bd91;padding-top:10px;font-size:12px;color:#5e5141;margin:7px 0 0}
-.growth{background:#071827;color:white}.growth .kicker,.growth .title .accent{color:#76dfba}.growth .title{font-size:clamp(74px,9vw,150px);margin:24px 0}.growth-bottom{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:end}.growth-steps{border-top:2px solid #76dfba}.growth-steps span{display:block;border-bottom:1px solid #537082;padding:12px 0;font:clamp(22px,2.3vw,36px)/1.1 var(--head)}.break-even{display:flex;align-items:end;gap:18px}.break-even strong{font:clamp(100px,12vw,190px)/.85 var(--head);color:#76dfba}.break-even b{font-size:14px;letter-spacing:.1em}.break-even p{font-size:13px;line-height:1.3;color:#c1d3df}.growth-foot{border-top:1px solid #688393;padding-top:14px;margin-top:22px;font-size:12px;font-weight:800;letter-spacing:.05em;color:#c1d3df}.growth-foot span{padding:0 12px;color:#76dfba}
-body[data-skin="prototype"] .footer{background:#f4f7fb}body[data-skin="pricing"] .footer{background:#fff9ed}body[data-skin="growth"] .header{color:#fff;border-color:rgba(255,255,255,.28)}body[data-skin="growth"] .footer{background:#071827;color:white;border-color:#577082}
-body[data-skin="pricing"] .timer-ring circle:last-child,body[data-skin="pricing"] .timeline i.active{stroke:#a45c08;background:#a45c08}body[data-skin="growth"] .timer-ring circle:last-child,body[data-skin="growth"] .timeline i.active{stroke:#76dfba;background:#76dfba}
-@media(max-height:800px) and (min-width:731px){.prototype .title,.cost .title,.pricing .title,.growth .title{margin:10px 0}.prototype-modules{margin-top:10px}.cost-hero strong{font-size:clamp(115px,13vw,190px)}.plans{gap:10px 26px;margin:8px 0}.plan{padding-top:8px}.plan strong{font-size:clamp(40px,4.2vw,66px)}.ai-demo-grid{margin:12px 0}.ai-chat{min-height:245px;padding:14px}.training-row{padding:8px 0}.ai .title{font-size:clamp(58px,6.1vw,93px)}}
-@media(max-width:730px){.prototype .title,.cost .title,.pricing .title,.growth .title{font-size:clamp(60px,11vw,95px)}.prototype-modules{grid-template-columns:repeat(2,1fr)}.prototype-route{font-size:23px}.ai-demo-grid{grid-template-columns:1fr;gap:14px}.training{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.training-row{grid-template-columns:1fr}.training-row strong{font-size:13px}.training p{grid-column:1/-1}.ai-chat{min-height:225px}.cost-hero strong{font-size:clamp(112px,18vw,170px)}.plans{gap:12px}.plan strong{font-size:clamp(40px,6vw,65px)}.growth-bottom{grid-template-columns:1fr;gap:23px}.growth-steps{display:flex;gap:12px}.growth-steps span{font-size:18px;flex:1}.break-even strong{font-size:110px}}
-@media(max-width:480px){.ai .title{font-size:clamp(39px,9.8vw,52px)}.prototype .title,.cost .title,.pricing .title,.growth .title{font-size:clamp(54px,12vw,72px)}.prototype-modules b{font-size:28px}.prototype-route{font-size:18px}.training-row strong{font-size:12px}.ai-chat{padding:12px}.chat-head strong{font-size:23px}.chat-head span{font-size:9px}.chat-reply{font-size:12px}.ai-chat input{font-size:12px}.ai-chat button{font-size:9px}.ai-evidence{font-size:10px}.cost-hero strong{font-size:clamp(100px,22vw,135px)}.cost-foot b{font-size:30px}.plans{gap:12px 10px}.plan label{font-size:9px}.plan strong{font-size:clamp(36px,9vw,51px)}.plan p{font-size:14px}.growth-steps span{font-size:14px}.break-even strong{font-size:100px}.growth-foot{font-size:10px}}
-
-/* En precios, Q0 es solo el desembolso inicial, nunca el costo total. */
-.plan span{display:block;margin-top:5px;font-size:14px;font-weight:650;color:#5b5143;line-height:1.25}
-.plan.no-upfront{border-color:#0369a1}.plan.no-upfront strong{color:#0369a1}
-.plan-explainer{border-top:2px solid #1b4562;padding-top:12px;display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}
-.plan-explainer strong{font:clamp(25px,2.4vw,38px)/1 var(--head);color:#103e60;white-space:nowrap}
-.plan-explainer span{font-size:16px;font-weight:800;line-height:1.2;color:#263c4c}
-@media(max-height:800px) and (min-width:731px){.plan span{font-size:12px}.plan-explainer{padding-top:8px}.plan-explainer strong{font-size:29px}.plan-explainer span{font-size:13px}.plan-foot{font-size:10px}}
-@media(max-width:730px){.plan span{font-size:12px}.plan-explainer span{font-size:14px}}
-@media(max-width:480px){.plan span{font-size:11px}.plan-explainer{gap:5px;padding-top:8px}.plan-explainer strong{font-size:23px}.plan-explainer span{font-size:12px}.plan-foot{font-size:10px}}
-
-/* Un mismo asistente clínico acompaña el relato; los iconos se animan sin tapar datos. */
-.kicker-icon{width:27px;height:27px;margin-left:5px;display:inline-flex;align-items:center;justify-content:center;flex:none;animation:icon-float 3.3s ease-in-out infinite}.kicker-icon svg{width:100%;height:100%}.slide.active .kicker-icon path,.slide.active .kicker-icon rect,.slide.active .kicker-icon circle{stroke-dasharray:150;stroke-dashoffset:150;animation:icon-draw 1.25s ease-out forwards .25s}
-@keyframes icon-draw{to{stroke-dashoffset:0}}@keyframes icon-float{50%{transform:translateY(-4px) rotate(4deg)}}
-.footer{padding-right:130px}.mascot-dock{position:absolute;right:16px;bottom:1px;width:80px;height:98px;pointer-events:none;z-index:2;color:#263d59;animation:mascot-float 4s ease-in-out infinite}.mascot-dock svg{width:100%;height:100%;overflow:visible}.mascot-dock.hop{animation:mascot-hop .65s ease-out,mascot-float 4s ease-in-out infinite .65s}.mascot-arm{transform-origin:65px 56px;animation:mascot-wave 2.4s ease-in-out infinite}.mascot-left-arm{transform-origin:35px 57px;animation:mascot-check 3.2s ease-in-out infinite}.mascot-eye{transform-origin:center;animation:mascot-blink 5s infinite}.mascot-prop{display:none;transform-origin:80px 24px;animation:mascot-prop-bob 2.6s ease-in-out infinite}
-body[data-skin="problem"] .prop-problem,body[data-skin="prototype"] .prop-prototype,body[data-skin="lung"] .prop-lung,body[data-skin="heart"] .prop-heart,body[data-skin="ai"] .prop-ai,body[data-skin="mint"] .prop-mint,body[data-skin="pricing"] .prop-pricing,body[data-skin="growth"] .prop-growth{display:block}
-@keyframes mascot-float{50%{transform:translateY(-5px)}}@keyframes mascot-hop{0%{transform:translateY(0) scale(1)}45%{transform:translateY(-14px) scale(1.07)}100%{transform:translateY(0) scale(1)}}@keyframes mascot-wave{0%,55%,100%{transform:rotate(0)}65%{transform:rotate(-18deg)}75%{transform:rotate(9deg)}85%{transform:rotate(-13deg)}}@keyframes mascot-check{0%,100%{transform:rotate(0)}40%,60%{transform:rotate(7deg)}}@keyframes mascot-blink{0%,46%,50%,100%{transform:scaleY(1)}48%{transform:scaleY(.08)}}@keyframes mascot-prop-bob{50%{transform:translateY(-5px) rotate(6deg)}}
-.circuit-art{position:absolute;right:2%;top:18%;width:min(48%,620px);height:52%;color:#1d4ed8;opacity:.16;pointer-events:none;z-index:0}.prototype .slide-inner>*:not(.circuit-art){position:relative;z-index:1}.prototype.active .circuit-art path{stroke-dasharray:1800;stroke-dashoffset:1800;animation:circuit-draw 3.1s ease-in-out forwards .25s}.prototype.active .circuit-art circle{animation:circuit-glow 2.5s ease-in-out infinite alternate}@keyframes circuit-draw{to{stroke-dashoffset:0}}@keyframes circuit-glow{from{opacity:.25;r:5}to{opacity:1;r:9}}
-.anatomy>svg{width:70%;max-width:none;margin-right:auto;transform-origin:45% 52%}.lung.active .lung-figure>svg{animation:lung-breathe 3.4s ease-in-out infinite}.heart.active .heart-figure>svg{animation:heart-beat 1.7s ease-in-out infinite}@keyframes lung-breathe{50%{transform:scale(1.035)}}@keyframes heart-beat{0%,45%,100%{transform:scale(1)}50%{transform:scale(1.055)}56%{transform:scale(1.02)}}
-.care-scene{position:absolute;right:0;top:15%;width:47%;height:72%;z-index:2;pointer-events:none}.care-scene svg{width:100%;height:100%;overflow:visible}.care-hand{transform-origin:77px 102px;animation:care-hand 2.2s ease-in-out infinite}.care-patient{transform-origin:160px 170px;animation:care-breathe 3.3s ease-in-out infinite}.care-sensor{animation:care-sensor 2.1s ease-in-out infinite}.care-wave{transform-origin:159px 115px;animation:care-wave 2.1s ease-out infinite}@keyframes care-hand{50%{transform:rotate(-4deg)}}@keyframes care-breathe{50%{transform:scaleX(1.035)}}@keyframes care-sensor{50%{opacity:.68}}@keyframes care-wave{0%{opacity:.7;transform:scale(.65)}100%{opacity:0;transform:scale(1.35)}}
-@media(max-width:730px){.footer{padding-right:66px}.mascot-dock{right:3px;bottom:0;width:50px;height:65px}.kicker-icon{width:23px;height:23px}.circuit-art{width:60%;opacity:.12}.anatomy>svg{width:68%}.care-scene{width:49%;right:-3%;top:16%}}
-@media(max-width:480px){.footer{padding-right:53px}.mascot-dock{width:42px;height:57px;right:2px}.kicker-icon{width:20px;height:20px;margin-left:1px}.care-scene{width:48%;right:-4%}.circuit-art{top:25%;width:70%}}
-
-/* Mini doctor más expresivo y flujo de datos visible entre módulos. */
-.footer{padding-right:164px}.mascot-dock{width:126px;height:151px;right:10px;bottom:0;filter:drop-shadow(0 9px 12px rgba(25,57,86,.18))}.mascot-arm{transform-origin:82px 79px;animation:doctor-wave 1.7s ease-in-out infinite}.mascot-left-arm{transform-origin:38px 80px;animation:doctor-listen 2.2s ease-in-out infinite}.mascot-prop{transform-origin:103px 27px;animation:doctor-prop 1.8s ease-in-out infinite}.doctor-body{transform-origin:60px 115px;animation:doctor-sway 3.4s ease-in-out infinite}
-@keyframes doctor-wave{0%,38%,100%{transform:rotate(0)}48%{transform:rotate(-34deg)}58%{transform:rotate(19deg)}68%{transform:rotate(-28deg)}78%{transform:rotate(12deg)}}@keyframes doctor-listen{0%,100%{transform:rotate(0)}50%{transform:rotate(13deg)}}@keyframes doctor-prop{50%{transform:translateY(-10px) scale(1.13) rotate(8deg)}}@keyframes doctor-sway{50%{transform:rotate(3deg)}}
-.hardware-network{position:relative;height:330px;margin:12px 0 7px;border-top:1px solid #a9bfe3;border-bottom:1px solid #a9bfe3;isolation:isolate}.network-wires{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:0;color:#3c72d6}.network-wires .wire{stroke:currentColor;stroke-width:3;fill:none;stroke-dasharray:11 10;animation:wire-travel 1.1s linear infinite}.network-wires .led-wire{stroke:#ea981d}.network-wires .packet{fill:#0e7490;filter:drop-shadow(0 0 7px #13b9de)}.network-wires .packet-ppg{fill:#be123c;filter:drop-shadow(0 0 8px #e44573)}.network-wires .packet-led{fill:#f6c83b;filter:drop-shadow(0 0 7px #e89927)}@keyframes wire-travel{to{stroke-dashoffset:-42}}
-.hardware-node{position:absolute;width:16%;min-width:125px;height:90px;z-index:2;padding:11px 12px;background:rgba(255,255,255,.96);border:2px solid #b1c5e7;color:#1e40af;display:grid;grid-template-columns:39px 1fr;grid-template-rows:1fr auto;column-gap:8px;align-items:center;box-shadow:0 3px 0 rgba(30,64,175,.06);animation:network-node 6s ease-in-out infinite}.hardware-node b{font:clamp(15px,1.6vw,25px)/1 var(--head);white-space:nowrap}.hardware-node small{font-size:9px;font-weight:900;letter-spacing:.08em;grid-column:2;align-self:start}.node-icon{grid-row:1/3;display:grid;place-items:center}.node-icon svg{width:33px;height:33px}.node-mic{left:0;top:6%;color:#0e7490;animation-delay:0s}.node-ppg{left:0;bottom:6%;color:#be123c;animation-delay:.45s}.node-esp{left:30%;top:34%;color:#1d4ed8;animation-delay:1.2s}.node-led{left:30%;bottom:0;color:#b45309;animation-delay:1.7s}.node-ai{left:58%;top:34%;color:#6d28d9;animation-delay:2.6s}.node-screen{left:82%;top:34%;color:#047857;animation-delay:4.1s}
-@keyframes network-node{0%,8%,42%,100%{transform:scale(1);border-color:#b1c5e7;box-shadow:0 3px 0 rgba(30,64,175,.06)}13%,27%{transform:scale(1.08);border-color:currentColor;box-shadow:0 0 0 7px rgba(29,78,216,.12),0 12px 25px rgba(29,78,216,.13)}}
-.led-bar{display:flex;gap:2px;align-items:center;justify-content:center;flex-wrap:wrap;width:34px}.led-bar i{width:7px;height:7px;background:#ceaa71;border-radius:50%;animation:led-run 1.6s ease-in-out infinite}.led-bar i:nth-child(2){animation-delay:.15s}.led-bar i:nth-child(3){animation-delay:.3s}.led-bar i:nth-child(4){animation-delay:.45s}.led-bar i:nth-child(5){animation-delay:.6s}.led-bar i:nth-child(6){animation-delay:.75s}.led-bar i:nth-child(7){animation-delay:.9s}.led-bar i:nth-child(8){animation-delay:1.05s}@keyframes led-run{0%,100%{background:#ceaa71;box-shadow:none}45%{background:#f5c732;box-shadow:0 0 10px #e8b71d}}
-.prototype .prototype-route{font-size:clamp(20px,2.2vw,34px)}.prototype .circuit-art{opacity:.08}
-.scan .anatomy>svg{width:58%}.scan .care-scene{width:62%;height:88%;right:-5%;top:4%}.care-hand{animation:doctor-exam 1.55s ease-in-out infinite}.care-sensor{animation:doctor-sensor 1.25s ease-in-out infinite}.care-wave{animation:doctor-ripple 1.4s ease-out infinite;stroke-width:3}.care-patient{animation:care-breathe 2.6s ease-in-out infinite}@keyframes doctor-exam{0%,100%{transform:rotate(0)}50%{transform:rotate(-11deg)}}@keyframes doctor-sensor{50%{opacity:.42;transform:scale(1.16)}}@keyframes doctor-ripple{0%{opacity:.8;transform:scale(.55)}100%{opacity:0;transform:scale(1.55)}}
-@media(max-height:800px) and (min-width:731px){.hardware-network{height:260px}.hardware-node{height:72px;padding:7px}.hardware-node b{font-size:18px}.hardware-node small{font-size:8px}.node-icon svg{width:28px;height:28px}.mascot-dock{width:108px;height:132px}.footer{padding-right:145px}}
-@media(max-width:900px){.hardware-node{min-width:0;width:17%;padding:7px;grid-template-columns:28px 1fr;column-gap:4px}.hardware-node b{font-size:15px}.hardware-node small{font-size:7px}.node-icon svg{width:27px;height:27px}.node-screen{left:81%}}
-@media(max-width:730px){.footer{padding-right:82px}.mascot-dock{width:73px;height:87px;right:3px}.hardware-network{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;height:auto;padding:12px 0}.network-wires{display:none}.hardware-node{position:relative;left:auto;top:auto;bottom:auto;width:auto;min-width:0;height:75px;animation:network-node 6s ease-in-out infinite}.hardware-node b{font-size:18px}.hardware-node small{font-size:9px}.scan .care-scene{width:61%;right:-7%;height:90%}.scan .anatomy>svg{width:58%}}
-@media(max-width:480px){.footer{padding-right:61px}.mascot-dock{width:55px;height:71px;right:1px}.hardware-node{height:66px;grid-template-columns:23px 1fr}.hardware-node b{font-size:14px}.hardware-node small{font-size:7px}.node-icon svg{width:23px;height:23px}.prototype .prototype-route{font-size:16px}.scan .care-scene{width:66%;right:-11%}}
-
-/* Área libre para que el doctor no cubra cifras ni notas de cierre. */
-.scan-bottom,.plan-foot,.cost-foot,.ai-evidence,.growth-foot{padding-right:115px}
-@media(max-width:730px){.scan-bottom,.plan-foot,.cost-foot,.ai-evidence,.growth-foot{padding-right:65px}.hardware-network:before{content:"";position:absolute;top:13%;bottom:13%;left:50%;border-left:2px dashed #8ab0e3;opacity:.65;z-index:-1}}
-@media(max-width:480px){.scan-bottom,.plan-foot,.cost-foot,.ai-evidence,.growth-foot{padding-right:45px}}
-@media(prefers-reduced-motion:reduce){.network-wires .packet{display:none}}
-
-/* Reloj configurable y controles discretos de reproducción en bucle. */
-.timer-trigger{border:0;background:none;color:inherit;text-align:left;padding:3px 6px 3px 0;cursor:pointer;border-radius:8px}.timer-trigger:hover{background:rgba(92,133,173,.12)}.timer-trigger:hover .time-value small{text-decoration:underline;text-underline-offset:2px}.timer-trigger:focus-visible{outline:3px solid #1d4ed8;outline-offset:3px}.time-value{display:block}.time-value small{white-space:nowrap}
-.timing-global{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.modal .timing-global input{width:115px;font:31px var(--head);padding:5px 10px}.time-presets{display:flex;flex-wrap:wrap;gap:6px}.time-presets button{background:#eef2f8;border:1px solid #aabbd0;color:#1e3a5f;padding:8px 10px;font-size:11px;font-weight:850}.time-presets button:hover,.time-presets button.selected{background:#1d4ed8;border-color:#1d4ed8;color:white}.modal .loop-option{display:flex;align-items:center;gap:14px;padding:15px 0;margin:16px 0 8px;border-top:1px solid #cbd5e1;border-bottom:1px solid #cbd5e1;cursor:pointer}.modal .loop-option input{width:22px;height:22px;accent-color:#1d4ed8;flex:none}.loop-option span{display:block}.loop-option strong{display:block;font-size:13px;letter-spacing:.08em}.loop-option small{display:block;font-size:11px;font-weight:500;letter-spacing:0;text-transform:none;color:#617082;margin-top:4px}.timing-details summary{cursor:pointer;font-size:12px;font-weight:900;letter-spacing:.08em;padding:11px 0}.per-act-times{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 17px;padding:5px 0 12px}.modal .per-act-times label{margin:0;display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid #d7dfe9;padding:6px 0;font-size:10px;letter-spacing:.02em}.per-act-times label span{min-width:0;line-height:1.2}.modal .per-act-times input{width:82px;flex:none;padding:7px 8px;font-size:12px}.timing-summary{border-top:2px solid #1d4ed8;padding-top:12px;font-size:13px!important;font-weight:800;color:#143b7c!important;margin-bottom:0}
-@media(max-width:730px){.timer-trigger{padding:2px}.time-value small{font-size:6px}.per-act-times{grid-template-columns:1fr}.timing-global{align-items:flex-start}}
-@media(max-width:480px){.timer-trigger .time-value small{font-size:0}.timer-trigger .time-value small:after{content:'AJUSTAR';font-size:6px}.modal .timing-global input{width:95px;font-size:26px}.time-presets button{font-size:10px;padding:7px}}
-
-.loop-indicator{font:25px var(--head);color:#1d4ed8;align-self:center;line-height:1;animation:loop-spin 5s ease-in-out infinite}.footer .loop-indicator{opacity:.75}body[data-skin="heart"] .loop-indicator{color:#be123c}body[data-skin="lung"] .loop-indicator{color:#0369a1}body[data-skin="ai"] .loop-indicator{color:#6d28d9}body[data-skin="mint"] .loop-indicator{color:#047857}body[data-skin="pricing"] .loop-indicator{color:#a45c08}body[data-skin="growth"] .loop-indicator{color:#76dfba}@keyframes loop-spin{0%,72%,100%{transform:rotate(0)}87%{transform:rotate(360deg)}}
-@media(max-width:730px){.loop-indicator{display:none!important}}
-
-/* Selector de origen de datos: imposible confundir un ejemplo con una medición. */
-.mode-toggle{background:transparent;border:1px solid currentColor;color:inherit;display:inline-flex;align-items:center;gap:6px;justify-content:center;padding:7px 9px;font-size:10px;font-weight:900;letter-spacing:.09em;white-space:nowrap;cursor:pointer}.mode-toggle:hover{transform:translateY(-2px)}.mode-light{width:7px;height:7px;border-radius:50%;background:#5b91c5;display:inline-block}.simulation-banner{position:absolute;top:15px;right:clamp(20px,4vw,70px);z-index:29;padding:10px 14px;background:#fff3c4;color:#4f3b00;border:2px solid #c28411;font-size:11px;font-weight:950;letter-spacing:.1em;box-shadow:4px 4px 0 rgba(124,79,0,.13);animation:demo-banner-pulse 3s ease-in-out infinite}.simulation-banner[hidden]{display:none!important}@keyframes demo-banner-pulse{50%{box-shadow:4px 4px 0 rgba(124,79,0,.06),0 0 0 7px rgba(255,193,48,.12)}}.connection.sim .dot{background:#e6a52c;box-shadow:0 0 0 5px rgba(230,165,44,.18)}body[data-mode="sim"] .mode-toggle{background:#f6c83b;color:#101318;border-color:#795716}body[data-mode="sim"] .mode-light{background:#b91c1c;box-shadow:0 0 8px #b91c1c}body[data-mode="sim"] .live-panel{background:repeating-linear-gradient(135deg,transparent 0,transparent 26px,rgba(230,174,48,.035) 26px,rgba(230,174,48,.035) 28px)}body[data-mode="sim"] .panel-topline span:last-child{color:#8a5800;opacity:1}body[data-mode="sim"] .device-indicator .dot{background:#df9b21;box-shadow:0 0 0 4px rgba(224,171,43,.14)}
-@media(max-width:730px){.mode-toggle{font-size:9px;padding:5px 7px;gap:4px}.simulation-banner{top:8px;right:10px;font-size:9px;padding:7px 8px}}
-@media(max-width:480px){.timeline{display:none}.mode-toggle{font-size:8px;padding:5px}.simulation-banner{max-width:54vw;font-size:8px;text-align:center;line-height:1.2}}
-/* Fotografías del ensayo: un acto dedicado a cada imagen, autocontenido y adaptable. */
-.field-slide{background:#f4f7fb}.field-slide.field-heart{background:#fff3f6}.field-slide.field-lung{background:#edf8fc}.field-slide.field-growth{background:#071827;color:#fff}.field-layout{display:grid;grid-template-columns:.95fr 1.05fr;align-items:center;gap:clamp(22px,4vw,66px);width:100%}.field-copy{min-width:0}.field-copy .title{font-size:clamp(62px,6.4vw,108px);line-height:.93;margin:28px 0 23px}.field-copy .title span{display:block}.field-heart .accent{color:#be123c}.field-lung .accent{color:#0369a1}.field-growth .accent{color:#76dfba}.field-heart .kicker{color:#be123c}.field-lung .kicker{color:#0369a1}.field-growth .kicker{color:#76dfba}.field-copy .intro{font-weight:650;max-width:520px}.field-meta{border-top:2px solid currentColor;margin-top:44px;padding-top:17px;display:flex;flex-direction:column;gap:7px;font-size:12px;font-weight:900;letter-spacing:.1em}.field-meta span{font-size:11px;opacity:.65}.field-caveat{font-size:12px;line-height:1.4;opacity:.75;margin-top:22px;max-width:400px}.field-hero{display:block;position:relative;width:100%;height:min(64vh,calc(100dvh - 230px),660px);min-height:290px;overflow:hidden;padding:0;border:0;background:#27394b;box-shadow:14px 14px 0 rgba(23,47,71,.17);color:#fff;text-align:left;cursor:zoom-in}.field-growth .field-hero{box-shadow:14px 14px 0 rgba(255,255,255,.13)}.field-hero img{display:block;width:100%;height:100%;object-fit:cover;object-position:center var(--photo-position,35%);transition:transform 1.2s ease}.field-hero:hover img{transform:scale(1.045)}.field-hero:after{content:'';position:absolute;inset:57% 0 0;background:linear-gradient(transparent,rgba(2,13,24,.88));pointer-events:none}.field-hero-caption{position:absolute;z-index:1;bottom:22px;left:26px;right:24px;display:flex;flex-direction:column;gap:6px;text-shadow:0 2px 9px rgba(0,0,0,.6)}.field-hero-caption b{font:42px/1 var(--head)}.field-hero-caption strong{font-size:12px;letter-spacing:.11em}.field-hero-caption em{font-style:normal;font-size:10px;font-weight:850;letter-spacing:.1em;opacity:.85}
-.photo-modal{width:min(740px,100%);max-height:95vh;padding:clamp(15px,2.5vw,28px)}.photo-modal .modal-head{margin-bottom:12px}.photo-modal h2{font-size:clamp(27px,4vw,40px)}.photo-view{height:min(65vh,700px);background:#0d1824;display:grid;place-items:center}.photo-view img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}.photo-modal .photo-caption{font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.07em;margin:10px 0 0;color:#34485b}
-@media(max-width:730px){.field-layout{grid-template-columns:1fr;gap:17px}.field-hero{order:-1;height:min(49vh,430px);min-height:245px;box-shadow:7px 7px 0 rgba(23,47,71,.14)}.field-copy .title{font-size:clamp(52px,11vw,80px);margin:13px 0 7px}.field-copy .intro{margin-top:5px;font-size:14px}.field-meta{margin-top:13px;padding-top:10px;gap:3px;font-size:9px}.field-meta span{font-size:9px}.field-caveat{font-size:10px;margin-top:7px}.field-hero-caption{left:17px;bottom:14px}.field-hero-caption b{font-size:30px}}
-@media(max-width:480px){.field-hero{height:min(47vh,340px);min-height:210px}.field-copy .title{font-size:clamp(44px,10.5vw,66px)}.field-copy .intro{font-size:12px}.field-meta{margin-top:10px}.field-caveat{font-size:9px}.field-hero-caption strong{font-size:9px}}
-.ai-evidence{font-size:clamp(14px,1.1vw,18px)}.chat-context{font-size:14px}.chat-head span{font-size:13px}.panel-topline{font-size:12px}.field-hero-caption{flex-direction:row;align-items:end;justify-content:space-between}.field-hero-caption .open-glyph{font:30px/1 var(--head)}@media(max-width:480px){.ai-evidence{font-size:13px}.chat-context{font-size:12px}.field-hero-caption .open-glyph{font-size:24px}}
-
-/* Consultas pulmonar y cardíaca: gesto coordinado, doble pulso y seguimiento visual. */
-.lung.active .care-scene,.heart.active .care-scene{filter:drop-shadow(0 8px 11px rgba(30,66,96,.13))}.exam-doctor-head{transform-box:view-box;transform-origin:62px 62px}.exam-arm{transform-box:view-box;transform-origin:77px 102px}.exam-doctor-torso{transform-box:view-box;transform-origin:55px 173px}.lung.active .exam-doctor-head{animation:exam-look 3.2s ease-in-out infinite}.heart.active .exam-doctor-head{animation:exam-look 1.95s ease-in-out infinite}.lung.active .exam-arm{animation:exam-reach-lung 3.2s ease-in-out infinite}.heart.active .exam-arm{animation:exam-reach-heart 1.95s ease-in-out infinite}.lung.active .exam-doctor-torso{animation:exam-lean 3.2s ease-in-out infinite}.heart.active .exam-doctor-torso{animation:exam-lean 1.95s ease-in-out infinite}.lung.active .care-patient{animation:patient-lung 3.2s ease-in-out infinite}.heart.active .care-patient{animation:patient-heart 1.95s ease-in-out infinite}.lung.active .care-wave,.heart.active .care-wave{transform-box:view-box;transform-origin:159px 115px;animation:exam-ring 1.95s ease-out infinite}.lung.active .care-wave{animation-duration:3.2s}.lung.active .care-wave-two,.heart.active .care-wave-two{animation-delay:-1.6s}.heart.active .care-wave-two{animation-delay:-.98s}.exam-arm .care-hand,.exam-arm .care-sensor{animation:none}.exam-tube{stroke-dasharray:9 5;animation:tube-flow 2s linear infinite}.lung.active .exam-tube{animation-duration:3.2s}.exam-sparks{transform-box:view-box;transform-origin:185px 85px;animation:exam-spark 2s ease-in-out infinite}.lung.active .exam-sparks{animation-duration:3.2s}.exam-air{stroke-dasharray:40;animation:air-stream 3.2s ease-in-out infinite}.exam-ecg{stroke-dasharray:40;animation:ecg-stream 1.95s ease-in-out infinite}
-@keyframes exam-look{0%,100%{transform:rotate(0)}30%,60%{transform:rotate(8deg) translate(2px,1px)}}@keyframes exam-reach-lung{0%,100%{transform:rotate(-7deg) translateY(2px)}34%,62%{transform:rotate(5deg) translateY(-4px)}}@keyframes exam-reach-heart{0%,100%{transform:rotate(-4deg)}26%,36%{transform:rotate(7deg) translateY(-3px)}50%,56%{transform:rotate(2deg)}72%,80%{transform:rotate(7deg) translateY(-3px)}}@keyframes exam-lean{0%,100%{transform:rotate(0)}40%,60%{transform:rotate(2deg)}}@keyframes patient-lung{0%,100%{transform:scaleX(1) scaleY(1)}48%{transform:scaleX(1.07) scaleY(1.025)}}@keyframes patient-heart{0%,28%,46%,100%{transform:scale(1)}33%{transform:scale(1.04)}53%{transform:scale(1.023)}}@keyframes exam-ring{0%{transform:scale(.5);opacity:.8}75%,100%{transform:scale(1.45);opacity:0}}@keyframes tube-flow{to{stroke-dashoffset:-28}}@keyframes exam-spark{0%,100%{opacity:.2;transform:scale(.82)}40%,65%{opacity:1;transform:scale(1.08)}}@keyframes air-stream{0%,18%{stroke-dashoffset:40;opacity:0}35%{opacity:.8}80%{stroke-dashoffset:0;opacity:.75}100%{opacity:0}}@keyframes ecg-stream{0%,12%{stroke-dashoffset:40;opacity:.2}60%,82%{stroke-dashoffset:0;opacity:1}100%{opacity:.2}}
-.mascot-scan-rings{display:none;transform-box:view-box;transform-origin:103px 29px}body[data-skin="lung"] .mascot-scan-rings,body[data-skin="heart"] .mascot-scan-rings{display:block}body[data-skin="lung"] .mascot-scan-rings{color:#0369a1}body[data-skin="heart"] .mascot-scan-rings{color:#be123c}.mascot-scan-rings circle{transform-box:view-box;transform-origin:103px 29px;animation:mascot-ring 2s ease-out infinite}.mascot-scan-rings .mascot-scan-b{animation-delay:-1s}body[data-skin="lung"] .mascot-scan-rings circle{animation-duration:3.2s}body[data-skin="lung"] .mascot-scan-rings .mascot-scan-b{animation-delay:-1.6s}body[data-skin="lung"] .mascot-arm{animation:mascot-pulmonary 3.2s ease-in-out infinite}body[data-skin="heart"] .mascot-arm{animation:mascot-cardiac 1.95s ease-in-out infinite}body[data-skin="lung"] .prop-lung{animation:prop-breathe 3.2s ease-in-out infinite}body[data-skin="heart"] .prop-heart{animation:prop-beat 1.95s ease-in-out infinite}
-@keyframes mascot-ring{0%{transform:scale(.45);opacity:.7}85%,100%{transform:scale(1.55);opacity:0}}@keyframes mascot-pulmonary{0%,100%{transform:rotate(-8deg)}30%,63%{transform:rotate(-29deg)}}@keyframes mascot-cardiac{0%,25%,45%,100%{transform:rotate(-12deg)}32%,55%{transform:rotate(-28deg)}}@keyframes prop-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.14) translateY(-2px)}}@keyframes prop-beat{0%,24%,43%,100%{transform:scale(1)}31%{transform:scale(1.19)}52%{transform:scale(1.09)}}
-@media(prefers-reduced-motion:reduce){.lung.active .exam-doctor-head,.heart.active .exam-doctor-head,.lung.active .exam-arm,.heart.active .exam-arm,.lung.active .exam-doctor-torso,.heart.active .exam-doctor-torso,.lung.active .care-patient,.heart.active .care-patient,.lung.active .care-wave,.heart.active .care-wave,.exam-tube,.exam-sparks,.exam-air,.exam-ecg,body[data-skin="lung"] .mascot-scan-rings circle,body[data-skin="heart"] .mascot-scan-rings circle,body[data-skin="lung"] .mascot-arm,body[data-skin="heart"] .mascot-arm,body[data-skin="lung"] .prop-lung,body[data-skin="heart"] .prop-heart{animation:none!important;transform:none!important}}
-
-/* Corrección integral de ancho, márgenes y estilos Punto 1 y 2 */
-*, *:before, *:after{box-sizing:border-box}
-html,body{overflow-x:hidden;width:100%}
-.app{width:100%;overflow:hidden}
-.slide{width:100%;max-width:100vw;overflow-x:hidden;overflow-y:auto}
-.slide-inner{width:100%;max-width:min(1360px,100%);margin:0 auto;padding-inline:clamp(20px,4.5vw,60px);box-sizing:border-box;overflow-x:hidden}
+:root{--yellow:#f6c83b;--blue:#1d4ed8;--ink:#101318;--navy:#071827;--paper:#fafaf8;--gray:#56616e;--line:#cbd1d8;--head:Impact,"Arial Narrow","Arial Black",sans-serif;--body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*,*:before,*:after{box-sizing:border-box}
+html,body{height:100%;margin:0;padding:0;width:100%;overflow:hidden;background:var(--paper);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.app{height:100dvh;width:100%;overflow:hidden;position:relative}
+.slide{position:absolute;inset:0;height:100%;width:100%;max-width:100vw;overflow:hidden;visibility:hidden;opacity:0;pointer-events:none;background:var(--paper);transition:opacity .25s ease}
+.slide.active{visibility:visible;opacity:1;pointer-events:auto}
+.slide.problem{background:#eff4ff;color:#101318}
+.slide.prototype{background:#f4f7fb;color:#101318}
+.slide.lung{background:#edf8fc;color:#101318}
+.slide.mint{background:#e9f7ef;color:#101318}
+.slide.pricing{background:#fff9ed;color:#101318}
+.slide.growth{background:#071827;color:#fff}
+.slide-inner{height:100dvh;max-height:100dvh;width:100%;max-width:min(1360px,100%);margin:0 auto;box-sizing:border-box;overflow:hidden;padding:clamp(16px,2.5vh,28px) clamp(24px,4vw,64px) clamp(66px,8.5vh,76px);display:flex;flex-direction:column;justify-content:center}
 .slide-inner>*{min-width:0;max-width:100%}
-.title{overflow-wrap:break-word;word-break:normal;hyphens:none;line-height:.92}
-.title div{max-width:100%;overflow-wrap:break-word}
-
-/* Punto 1: Problema */
-.problem-cover .slide-inner{display:flex;flex-direction:column;justify-content:center;max-width:1150px}
-.problem-cover .title{font-size:clamp(65px,7.5vw,130px);margin:16px 0 12px}
-.problem-cover .intro{font-size:clamp(19px,1.8vw,27px);max-width:820px;line-height:1.35;font-weight:600}
-.problem-cover .pills-row{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
-
-.problem-duo .slide-inner{display:flex;flex-direction:column;justify-content:center}
-.problem-duo .title{font-size:clamp(56px,6.5vw,105px);margin:12px 0}
-.problem-duo .intro{max-width:820px;font-size:clamp(16px,1.45vw,22px);margin:6px 0 18px;font-weight:600}
-.duo-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;border-top:2px solid var(--ink);padding-top:18px;min-width:0;max-width:100%}
-.duo-card{border-left:4px solid var(--blue);padding:14px 18px;background:rgba(255,255,255,.8);border-radius:2px;min-width:0}
+.kicker{font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin:0 0 4px}
+.kicker-icon{width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;flex:none;animation:icon-float 3.5s ease-in-out infinite}
+.kicker-icon svg{width:100%;height:100%}
+.title{font:900 clamp(38px,4.4vw,68px)/.94 var(--head);letter-spacing:-.015em;text-transform:uppercase;margin:4px 0 8px;color:var(--ink)}
+.title.cover-title{font-size:clamp(46px,5.5vw,84px);margin:8px 0 14px}
+.title.mid{font-size:clamp(32px,3.6vw,54px)}
+.title div{overflow-wrap:break-word}
+.title .accent{color:var(--blue)!important}
+.title .highlight-red{color:#be123c!important}
+.title .highlight-green{color:#047857!important}
+.title .highlight-gold{color:#a45c08!important}
+.title .highlight-mint{color:#76dfba!important}
+.growth .title{color:#fff}
+.intro{font-size:clamp(14px,1.2vw,17px);line-height:1.38;max-width:820px;margin:4px 0 12px;color:#374151;font-weight:600}
+.growth .intro{color:#cbd5e1}
+.pills-row{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.pill{border:1px solid currentColor;padding:7px 11px;display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;border-radius:2px}
+.dot{width:7px;height:7px;display:inline-block;border-radius:50%;background:currentColor}
+.problem-tail-bar{border-top:1px solid rgba(16,19,24,.22);margin-top:clamp(10px,1.6vh,16px);padding-top:8px;font:clamp(13px,1.3vw,17px)/1.1 var(--head);letter-spacing:.02em;color:var(--blue);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.mint .problem-tail-bar{border-top-color:rgba(4,120,87,.25);color:#047857}
+.pricing .problem-tail-bar{border-top-color:rgba(164,92,8,.25);color:#a45c08}
+.growth .problem-tail-bar{border-top-color:#334e68;color:#76dfba}
+.side-by-side{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3.5vw,48px);align-items:center;width:100%;min-width:0}
+.problem-list{border-top:2px solid var(--ink);min-width:0}
+.problem-list>div{display:grid;grid-template-columns:36px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid rgba(16,19,24,.18)}
+.problem-list b{font:24px var(--head);color:var(--blue)}
+.problem-list strong{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.02em;margin-bottom:2px}
+.problem-list p{font-size:11.5px;line-height:1.35;color:#4b5563;margin:0}
+.duo-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;border-top:2px solid var(--ink);padding-top:14px;min-width:0;max-width:100%}
+.duo-card{border-left:4px solid var(--blue);padding:12px 16px;background:rgba(255,255,255,.85);border-radius:2px;min-width:0}
 .duo-card.danger{border-left-color:#be123c}
-.duo-card b{font:clamp(22px,2.2vw,34px)/1 var(--head);color:var(--blue);display:block;margin-bottom:6px}
+.duo-card.honest{border-left-color:#047857}
+.duo-card b{font:clamp(17px,1.8vw,24px)/1 var(--head);color:var(--blue);display:block;margin-bottom:4px}
 .duo-card.danger b{color:#be123c}
-.duo-card strong{display:block;font-size:14px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
-.duo-card p{font-size:13px;line-height:1.45;color:#374151;margin:0}
-.problem-tail-bar{border-top:1px solid rgba(16,19,24,.35);margin-top:20px;padding-top:12px;font:clamp(18px,1.8vw,25px)/1.1 var(--head);letter-spacing:.02em;color:var(--blue);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-
-/* Punto 2: Propuesta */
-.caps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;border-top:2px solid var(--ink);padding-top:20px;margin-top:16px;min-width:0;max-width:100%}
-.cap-card{border-top:3px solid var(--blue);padding:14px 14px;background:rgba(255,255,255,.75);min-width:0}
-.cap-card b{font:clamp(24px,2.4vw,36px)/1 var(--head);color:var(--blue);display:block;margin-bottom:6px}
-.cap-card strong{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;line-height:1.2}
-.cap-card p{font-size:12px;line-height:1.4;color:#4b5563;margin:0}
-
-.diff-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;border-top:2px solid var(--ink);padding-top:18px;margin-top:16px;min-width:0;max-width:100%}
-.diff-card{border-left:4px solid var(--blue);padding:14px 18px;background:rgba(255,255,255,.8);min-width:0}
-.diff-card.honest{border-left-color:#047857}
-.diff-card.honest b{color:#047857}
-.diff-card b{font:clamp(19px,1.9vw,26px)/1 var(--head);color:var(--blue);display:block;margin-bottom:5px}
-.diff-card strong{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
-.diff-card p{font-size:12px;line-height:1.4;color:#374151;margin:0}
-
+.duo-card.honest b{color:#047857}
+.duo-card strong{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:4px}
+.duo-card p{font-size:11.5px;line-height:1.35;color:#374151;margin:0}
+.caps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;border-top:2px solid var(--ink);padding-top:14px;margin-top:8px;min-width:0;max-width:100%}
+.cap-card{border-top:3px solid var(--blue);padding:10px 12px;background:rgba(255,255,255,.8);min-width:0}
+.cap-card b{font:clamp(19px,1.9vw,26px)/1 var(--head);color:var(--blue);display:block;margin-bottom:3px}
+.cap-card strong{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:3px;line-height:1.2}
+.cap-card p{font-size:11px;line-height:1.3;color:#4b5563;margin:0}
+.tri-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;border-top:2px solid var(--ink);padding-top:14px;margin-top:8px;min-width:0;max-width:100%}
+.tri-card{border-top:3px solid var(--blue);padding:12px 14px;background:rgba(255,255,255,.85);min-width:0}
+.tri-card.green{border-top-color:#047857}
+.tri-card.green b{color:#047857}
+.tri-card b{font:clamp(19px,1.9vw,26px)/1 var(--head);display:block;margin-bottom:4px}
+.tri-card strong{display:block;font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
+.tri-card p{font-size:11.5px;line-height:1.3;color:#374151;margin:0}
+.plans-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 20px;border-top:2px solid var(--ink);padding-top:12px;margin-top:6px}
+.plan-item{border-top:2px solid #a45c08;padding-top:6px}
+.plan-item.no-upfront{border-top-color:#0369a1}
+.plan-item label{font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#5c4731}
+.plan-item.no-upfront label{color:#075985}
+.plan-item strong{display:block;font:clamp(22px,2.4vw,34px)/1 var(--head);color:#a45c08;margin:2px 0}
+.plan-item.no-upfront strong{color:#0369a1}
+.plan-item p{font-size:12.5px;font-weight:800;margin:2px 0;color:#1f2937}
+.plan-item span{display:block;font-size:11px;color:#4b5563;line-height:1.25}
+.growth-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 24px;border-top:2px solid #76dfba;padding-top:12px;margin-top:8px}
+.growth-stat{border-bottom:1px solid #334e68;padding-bottom:8px}
+.growth-stat b{font:clamp(22px,2.4vw,34px)/1 var(--head);color:#76dfba;display:block}
+.growth-stat strong{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:#e2e8f0;display:block;margin:2px 0}
+.growth-stat p{font-size:11px;line-height:1.3;color:#94a3b8;margin:0}
+.footer{position:absolute;z-index:30;bottom:0;left:0;right:0;height:60px;padding:0 clamp(20px,3.5vw,60px);border-top:1px solid rgba(16,19,24,.25);display:flex;align-items:center;gap:16px;color:var(--ink);background:var(--paper);transition:color .25s,border-color .25s,background .25s;padding-right:140px}
+body[data-skin="problem"] .footer{background:#eff4ff}
+body[data-skin="prototype"] .footer{background:#f4f7fb}
+body[data-skin="lung"] .footer{background:#edf8fc}
+body[data-skin="mint"] .footer{background:#e9f7ef}
+body[data-skin="pricing"] .footer{background:#fff9ed}
+body[data-skin="growth"] .footer{background:#071827;color:#fff;border-color:#334e68}
+.step-no{font:20px var(--head);white-space:nowrap}
+.step-no span{opacity:.45}
+.timer{display:flex;align-items:center;gap:8px;min-width:115px;border:0;background:none;color:inherit;cursor:pointer;text-align:left;padding:3px 6px;border-radius:6px}
+.timer:hover{background:rgba(92,133,173,.12)}
+.timer-ring{width:30px;height:30px;transform:rotate(-90deg)}
+.timer-ring circle{fill:none;stroke:currentColor;stroke-width:4;opacity:.22}
+.timer-ring circle:last-child{opacity:1;stroke:var(--blue);stroke-dasharray:100;stroke-dashoffset:0;transition:stroke-dashoffset .15s linear}
+body[data-skin="mint"] .timer-ring circle:last-child{stroke:#047857}
+body[data-skin="pricing"] .timer-ring circle:last-child{stroke:#a45c08}
+body[data-skin="growth"] .timer-ring circle:last-child{stroke:#76dfba}
+.time-value{font:22px var(--head);letter-spacing:.02em}
+.time-value small{display:block;font:8px var(--body);font-weight:800;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.loop-indicator{font:20px var(--head);color:var(--blue);line-height:1;opacity:.75}
+body[data-skin="mint"] .loop-indicator{color:#047857}
+body[data-skin="pricing"] .loop-indicator{color:#a45c08}
+body[data-skin="growth"] .loop-indicator{color:#76dfba}
+.timer-control{background:none;border:0;color:inherit;padding:6px 2px;font-size:9px;font-weight:850;letter-spacing:.07em;cursor:pointer;text-transform:uppercase}
+.timer-control:hover,.api-button:hover,.full-button:hover{opacity:.6}
+.timeline{display:flex;flex:1;gap:4px;min-width:40px}
+.timeline i{flex:1;height:3px;background:currentColor;opacity:.2;border-radius:1px}
+.timeline i.past{opacity:.85}
+.timeline i.active{opacity:1;background:var(--blue)}
+body[data-skin="mint"] .timeline i.active{background:#047857}
+body[data-skin="pricing"] .timeline i.active{background:#a45c08}
+body[data-skin="growth"] .timeline i.active{background:#76dfba}
+.mode-toggle{background:transparent;border:1px solid currentColor;color:inherit;display:inline-flex;align-items:center;gap:6px;justify-content:center;padding:6px 9px;font-size:9px;font-weight:900;letter-spacing:.09em;white-space:nowrap;cursor:pointer;border-radius:2px}
+.mode-light{width:7px;height:7px;border-radius:50%;background:#5b91c5;display:inline-block}
+.api-button{background:none;border:0;color:inherit;padding:6px 4px}
+.connection{display:flex;align-items:center;gap:6px;font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.connection .dot{width:7px;height:7px;background:#9099a4}
+.connection.live .dot{background:#21ba83;box-shadow:0 0 0 4px rgba(33,186,131,.2)}
+.connection.sim .dot{background:#e6a52c;box-shadow:0 0 0 4px rgba(230,165,44,.2)}
+.connection.error .dot{background:#e3584e}
+.foot-nav{display:flex;gap:4px}
+.foot-nav button{width:28px;height:30px;border:0;background:none;color:inherit;font-size:21px}
+.foot-nav button:disabled{opacity:.25}
+.full-button{background:none;border:0;color:inherit;font-size:18px;padding:4px}
+.mascot-dock{position:absolute;right:12px;bottom:0;width:115px;height:135px;pointer-events:none;z-index:35;filter:drop-shadow(0 8px 10px rgba(25,57,86,.15));animation:mascot-float 4s ease-in-out infinite}
+.mascot-dock svg{width:100%;height:100%;overflow:visible}
+.mascot-dock.hop{animation:mascot-hop .65s ease-out,mascot-float 4s ease-in-out infinite .65s}
+.mascot-arm{transform-origin:82px 79px;animation:doctor-wave 1.8s ease-in-out infinite}
+.mascot-left-arm{transform-origin:38px 80px;animation:doctor-listen 2.2s ease-in-out infinite}
+.mascot-prop{display:none;transform-origin:103px 27px;animation:doctor-prop 2s ease-in-out infinite}
+.doctor-body{transform-origin:60px 115px;animation:doctor-sway 3.5s ease-in-out infinite}
+.mascot-eye{transform-origin:center;animation:mascot-blink 5s infinite}
+body[data-skin="problem"] .prop-problem,body[data-skin="prototype"] .prop-prototype,body[data-skin="lung"] .prop-lung,body[data-skin="mint"] .prop-mint,body[data-skin="pricing"] .prop-pricing,body[data-skin="growth"] .prop-growth{display:block}
+@keyframes mascot-float{50%{transform:translateY(-4px)}}
+@keyframes mascot-hop{0%{transform:translateY(0) scale(1)}45%{transform:translateY(-12px) scale(1.06)}100%{transform:translateY(0) scale(1)}}
+@keyframes doctor-wave{0%,38%,100%{transform:rotate(0)}48%{transform:rotate(-26deg)}58%{transform:rotate(15deg)}68%{transform:rotate(-20deg)}78%{transform:rotate(10deg)}}
+@keyframes doctor-listen{0%,100%{transform:rotate(0)}50%{transform:rotate(12deg)}}
+@keyframes doctor-prop{50%{transform:translateY(-8px) scale(1.1) rotate(6deg)}}
+@keyframes doctor-sway{50%{transform:rotate(2.5deg)}}
+@keyframes mascot-blink{0%,46%,50%,100%{transform:scaleY(1)}48%{transform:scaleY(.08)}}
+@keyframes icon-float{50%{transform:translateY(-3px) rotate(3deg)}}
+.wipe{position:absolute;inset:0;z-index:25;background:var(--yellow);pointer-events:none;transform:translateX(-102%)}
+.wipe.forward{animation:wipe-right .78s cubic-bezier(.76,0,.24,1) both}
+.wipe.backward{animation:wipe-left .78s cubic-bezier(.76,0,.24,1) both}
+@keyframes wipe-right{0%{transform:translateX(-102%)}47%,53%{transform:translateX(0)}100%{transform:translateX(102%)}}
+@keyframes wipe-left{0%{transform:translateX(102%)}47%,53%{transform:translateX(0)}100%{transform:translateX(-102%)}}
+.slide.active .reveal{animation:rise .75s cubic-bezier(.16,1,.3,1) both;animation-delay:var(--d,0s)}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.overlay{position:fixed;inset:0;z-index:70;background:rgba(3,14,27,.82);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:19px}
+.overlay.open{display:flex}
+.modal{width:min(720px,100%);max-height:89vh;overflow-y:auto;background:var(--paper);color:var(--ink);padding:clamp(22px,3vw,36px);box-shadow:10px 10px 0 var(--yellow)}
+.modal.wide{width:min(820px,100%)}
+.modal-head{display:flex;justify-content:space-between;gap:20px;align-items:start;margin-bottom:16px}
+.modal h2{font:40px/1 var(--head);text-transform:uppercase;margin:6px 0 0}
+.close{width:36px;height:36px;background:none;border:1px solid var(--ink);font-size:24px;line-height:1}
+.modal p,.modal li{font-size:13px;line-height:1.5;color:#495360}
+.modal label{display:block;font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin:12px 0 4px}
+.modal input,.modal textarea{width:100%;background:#fff;border:1px solid #b5bec8;padding:10px;color:var(--ink);font-size:13px}
+.modal textarea{min-height:60px;resize:vertical;font-family:monospace}
+.modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+.modal-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+.modal .hint{font-size:11px;color:#667381;line-height:1.45}
+.primary-btn,.outline-btn{background:var(--ink);color:#fff;border:1px solid var(--ink);font-size:11px;letter-spacing:.1em;font-weight:900;text-transform:uppercase;padding:10px 16px;display:inline-flex;gap:10px;align-items:center;justify-content:center}
+.primary-btn:hover{background:var(--blue);border-color:var(--blue)}
+.outline-btn{background:transparent;color:inherit;border-color:currentColor}
+.outline-btn:hover{background:rgba(127,127,127,.12)}
+.primary-btn:disabled,.outline-btn:disabled{opacity:.35;cursor:not-allowed}
+.log{background:#ecf0f3;border-left:3px solid var(--blue);padding:10px 13px;margin-top:14px;font:11px/1.5 monospace;white-space:pre-wrap;word-break:break-word;min-height:40px}
+.index-list{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.index-list button{border:1px solid #c4cbd3;background:#fff;text-align:left;padding:12px 14px;color:var(--ink)}
+.index-list button:hover{border-color:var(--blue)}
+.index-list button b{font:20px var(--head);color:var(--blue);display:block}
+.index-list button span{font-size:11.5px;font-weight:850;text-transform:uppercase}
+.timing-global{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.modal .timing-global input{width:110px;font:28px var(--head);padding:4px 8px}
+.time-presets{display:flex;flex-wrap:wrap;gap:6px}
+.time-presets button{background:#eef2f8;border:1px solid #aabbd0;color:#1e3a5f;padding:7px 9px;font-size:11px;font-weight:850}
+.time-presets button:hover,.time-presets button.selected{background:var(--blue);border-color:var(--blue);color:white}
+.modal .loop-option{display:flex;align-items:center;gap:14px;padding:12px 0;margin:14px 0 6px;border-top:1px solid #cbd5e1;border-bottom:1px solid #cbd5e1;cursor:pointer}
+.modal .loop-option input{width:20px;height:20px;accent-color:var(--blue);flex:none}
+.loop-option strong{display:block;font-size:13px;letter-spacing:.08em}
+.loop-option small{display:block;font-size:11px;font-weight:500;color:#617082;margin-top:2px}
+.timing-details summary{cursor:pointer;font-size:12px;font-weight:900;letter-spacing:.08em;padding:10px 0}
+.per-act-times{display:grid;grid-template-columns:repeat(2,1fr);gap:6px 14px;padding:4px 0 10px}
+.modal .per-act-times label{margin:0;display:flex;align-items:center;justify-content:space-between;gap:8px;border-bottom:1px solid #d7dfe9;padding:5px 0;font-size:10px}
+.modal .per-act-times input{width:75px;flex:none;padding:5px 6px;font-size:11px}
+.timing-summary{border-top:2px solid var(--blue);padding-top:10px;font-size:12px!important;font-weight:800;color:#143b7c!important;margin-bottom:0}
+.toast{position:fixed;z-index:100;bottom:80px;left:50%;transform:translate(-50%,10px);opacity:0;pointer-events:none;background:var(--ink);color:white;border:2px solid var(--yellow);padding:10px 15px;font-size:12px;max-width:90vw;text-align:center;transition:.2s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.simulation-banner{position:absolute;top:12px;right:clamp(16px,3.5vw,60px);z-index:29;padding:8px 12px;background:#fff3c4;color:#4f3b00;border:2px solid #c28411;font-size:10px;font-weight:950;letter-spacing:.1em}
+.simulation-banner[hidden]{display:none!important}
 @media(max-width:1024px){
-  .problem .slide-inner{grid-template-columns:1fr;gap:20px}
-  .duo-grid{grid-template-columns:1fr;gap:14px}
-  .caps-grid{grid-template-columns:repeat(2,1fr);gap:12px}
-  .diff-grid{grid-template-columns:1fr;gap:12px}
-  .problem-cover .title{font-size:clamp(52px,10vw,80px)}
-  .problem-cover .intro{font-size:17px}
+  .side-by-side{grid-template-columns:1fr;gap:14px}
+  .duo-grid{grid-template-columns:1fr;gap:10px}
+  .caps-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .tri-grid{grid-template-columns:1fr;gap:10px}
+  .plans-grid{grid-template-columns:1fr;gap:10px}
+  .growth-grid{grid-template-columns:1fr;gap:10px}
 }
-@media(max-width:600px){
-  .caps-grid{grid-template-columns:1fr;gap:10px}
-  .slide-inner{padding-inline:18px}
+@media(max-width:680px){
+  .slide-inner{padding:14px 16px 66px}
+  .footer{padding-right:70px;gap:8px}
+  .mascot-dock{width:60px;height:75px;right:4px}
+  .caps-grid{grid-template-columns:1fr;gap:8px}
+  .title.cover-title{font-size:clamp(38px,9vw,56px)}
+  .title.mid{font-size:clamp(28px,7vw,42px)}
+  .intro{font-size:13.5px}
 }
-</style></head><body data-skin="yellow"><div class="app">
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style></head><body data-skin="problem"><div class="app">
 <main id="slides">
 <!-- BLOQUE 01: EL PROBLEMA -->
-<section class="slide problem problem-cover active" data-skin="problem" data-name="Portada" aria-label="Acto 1 de 6: Portada y Lema Central">
+<section class="slide problem active" data-skin="problem" data-name="Portada" aria-label="Acto 1 de 11: Portada y Lema Central">
   <div class="slide-inner">
     <div class="kicker reveal">01 / PRESENTACIÓN DE PRODUCTO · VITALSYNC<span class="kicker-icon" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 21c-3-8 3-16 12-16s15 7 13 15c-1 6-7 7-10 10-2 3-7 5-11 1"/><path d="M17 19c0-6 9-8 11-2"/></svg></span></div>
-    <h1 class="title">
-      <div class="reveal" style="--d:.12s">SPIROSCAN AI</div>
-      <div class="reveal inverse" style="--d:.22s">UN SEGUNDO PAR</div>
-      <div class="reveal accent" style="--d:.32s">DE OÍDOS.</div>
+    <h1 class="title cover-title">
+      <div class="reveal" style="--d:.1s">SPIROSCAN AI</div>
+      <div class="reveal accent" style="--d:.2s">UN SEGUNDO PAR DE OÍDOS.</div>
     </h1>
-    <p class="intro reveal" style="--d:.38s">
+    <p class="intro reveal" style="--d:.3s">
       Asistente biomédico inteligente de auscultación digital para el médico general frente a la saturación de la consulta y la subjetividad del estetoscopio convencional.
     </p>
-    <div class="pills-row reveal" style="--d:.5s">
+    <div class="pills-row reveal" style="--d:.4s">
       <span class="pill"><i class="dot"></i> FERIA TECNOLÓGICA 2026</span>
       <span class="pill"><i class="dot"></i> ATENCIÓN PRIMARIA</span>
       <span class="pill"><i class="dot"></i> CERO DATOS INVENTADOS</span>
@@ -236,64 +231,67 @@ html,body{overflow-x:hidden;width:100%}
   </div>
 </section>
 
-<section class="slide problem" data-skin="problem" data-name="Falla de 1816" aria-label="Acto 2 de 6: La Falla Física de 1816">
+<section class="slide problem" data-skin="problem" data-name="Falla de 1816" aria-label="Acto 2 de 11: La Falla Física de 1816">
   <div class="slide-inner">
-    <div>
-      <div class="kicker reveal">01.1 / EPIDEMIOLOGÍA Y ACÚSTICA<span class="kicker-icon" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 35 7 22C0 14 7 5 15 11l5 4 5-4c8-6 15 3 8 11Z"/></svg></span></div>
-      <h2 class="title">
-        <div class="reveal" style="--d:.12s">1.7 MILLONES</div>
-        <div class="reveal inverse" style="--d:.22s">DE VIDAS.</div>
-        <div class="reveal" style="--d:.32s;font-size:clamp(40px,4.5vw,75px)">TUBO DE 1816.</div>
-      </h2>
-      <p class="intro reveal" style="--d:.42s">
-        Mortalidad anual por afecciones cardiopulmonares detectables tempranamente mediante auscultación y oximetría (OMS).
-      </p>
+    <div class="side-by-side">
+      <div>
+        <div class="kicker reveal">01.1 / EPIDEMIOLOGÍA Y ACÚSTICA<span class="kicker-icon" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 35 7 22C0 14 7 5 15 11l5 4 5-4c8-6 15 3 8 11Z"/></svg></span></div>
+        <h2 class="title mid">
+          <div class="reveal" style="--d:.1s">1.7 MILLONES DE VIDAS.</div>
+          <div class="reveal accent" style="--d:.2s">EL TUBO DE 1816.</div>
+        </h2>
+        <p class="intro reveal" style="--d:.3s">
+          Mortalidad anual por afecciones cardiopulmonares detectables tempranamente mediante auscultación y oximetría (OMS).
+        </p>
+      </div>
+      <div class="problem-list">
+        <div class="reveal" style="--d:.25s">
+          <b>01</b>
+          <span>
+            <strong>GRAVES CARDÍACOS (&lt;200 HZ)</strong>
+            <p>S1/S2 y soplos diastólicos enmascarados por el ruido ambiental de la consulta clínica saturada.</p>
+          </span>
+        </div>
+        <div class="reveal" style="--d:.35s">
+          <b>02</b>
+          <span>
+            <strong>AGUDOS PULMONARES (&gt;400–1000 HZ)</strong>
+            <p>Sibilancias y estertores finos resultan inaudibles ante la respiración superficial del paciente.</p>
+          </span>
+        </div>
+        <div class="reveal" style="--d:.45s">
+          <b>03</b>
+          <span>
+            <strong>SIN MEMORIA ACÚSTICA</strong>
+            <p><em>"La primera escucha se pierde en el aire"</em>. No existe registro objetivo para comparar evolución ni telemedicina.</p>
+          </span>
+        </div>
+      </div>
     </div>
-    <div class="problem-list">
-      <div class="reveal" style="--d:.38s">
-        <b>01</b>
-        <span>
-          <strong>GRAVES CARDÍACOS (&lt;200 HZ)</strong>
-          <p>S1/S2 y soplos diastólicos se enmascaran con el ruido ambiental de la consulta clínica saturada.</p>
-        </span>
-      </div>
-      <div class="reveal" style="--d:.52s">
-        <b>02</b>
-        <span>
-          <strong>AGUDOS PULMONARES (&gt;400–1000 HZ)</strong>
-          <p>Sibilancias y estertores finos resultan inaudibles ante la respiración superficial del paciente.</p>
-        </span>
-      </div>
-      <div class="reveal" style="--d:.66s">
-        <b>03</b>
-        <span>
-          <strong>SIN MEMORIA ACÚSTICA</strong>
-          <p><em>"La primera escucha se pierde en el aire"</em>. No existe registro objetivo para comparar evolución ni telemedicina.</p>
-        </span>
-      </div>
-      <div class="problem-tail reveal" style="--d:.8s">LIMITACIÓN FÍSICA INSALVABLE</div>
+    <div class="problem-tail-bar reveal" style="--d:.55s">
+      <span>LIMITACIÓN FÍSICA INSALVABLE DEL ESTETOSCOPIO TRADICIONAL</span>
+      <span class="pill">210 AÑOS DE RETRASO</span>
     </div>
   </div>
 </section>
 
-<section class="slide problem problem-duo" data-skin="problem" data-name="Inseguridad y costos" aria-label="Acto 3 de 6: Inseguridad Diagnóstica y Sobrecostos">
+<section class="slide problem" data-skin="problem" data-name="Inseguridad y costos" aria-label="Acto 3 de 11: Inseguridad Diagnóstica y Sobrecostos">
   <div class="slide-inner">
     <div>
       <div class="kicker reveal">01.2 / IMPACTO EN EL SISTEMA DE SALUD<span class="kicker-icon" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="20" r="15"/><path d="M26 14c-5-3-12-1-12 3 0 6 12 1 12 7 0 4-7 6-13 2m7-17v22"/></svg></span></div>
       <h2 class="title mid">
-        <div class="reveal" style="--d:.12s">LA DUDA</div>
-        <div class="reveal inverse" style="--d:.22s">DIAGNÓSTICA</div>
-        <div class="reveal" style="--d:.32s">CUESTA CARO.</div>
+        <div class="reveal" style="--d:.1s">LA DUDA DIAGNÓSTICA</div>
+        <div class="reveal highlight-red" style="--d:.2s">CUESTA CARO.</div>
       </h2>
-      <p class="intro reveal" style="--d:.38s">
+      <p class="intro reveal" style="--d:.3s">
         La dificultad del médico de primer contacto para confirmar si un sonido es patológico genera dos desenlaces perjudiciales para el paciente y el hospital:
       </p>
     </div>
-    <div class="duo-grid reveal" style="--d:.5s">
+    <div class="duo-grid reveal" style="--d:.4s">
       <div class="duo-card danger">
         <b>CONSECUENCIA 01</b>
         <strong>Sobrecostos por Hiper-Derivación</strong>
-        <p>Envío masivo de pacientes a radiografías de tórax, ecocardiogramas y tomografías de urgencia simplemente para descartar dudas acústicas básicas, saturando los servicios de salud y encareciendo la atención.</p>
+        <p>Envío masivo de pacientes a rayos X, ecocardiogramas y tomografías de urgencia simplemente para descartar dudas acústicas básicas, saturando los servicios de salud y encareciendo la atención.</p>
       </div>
       <div class="duo-card danger">
         <b>CONSECUENCIA 02</b>
@@ -301,26 +299,26 @@ html,body{overflow-x:hidden;width:100%}
         <p>Pacientes con soplos silentes o broncoespasmos tempranos que regresan a casa sin confirmar y terminan meses después ingresando a urgencias hospitalarias en insuficiencia descompensada.</p>
       </div>
     </div>
-    <div class="problem-tail-bar reveal" style="--d:.7s">
-      <span>REFERENCIAS: NICE NG115/NG245 · NHLBI/AHA</span>
+    <div class="problem-tail-bar reveal" style="--d:.55s">
+      <span>REFERENCIAS: DIRECTRICES NICE NG115/NG245 · NHLBI / AHA</span>
       <span class="pill" style="border-color:#be123c;color:#be123c">INSEGURIDAD MÉDICA</span>
     </div>
   </div>
 </section>
 
-<section class="slide problem problem-duo" data-skin="problem" data-name="Vacío de mercado" aria-label="Acto 4 de 6: El Vacío del Mercado">
+<section class="slide problem" data-skin="problem" data-name="Vacío de mercado" aria-label="Acto 4 de 11: El Vacío del Mercado">
   <div class="slide-inner">
     <div>
       <div class="kicker reveal">01.3 / EL VACÍO DEL MERCADO<span class="kicker-icon" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="6" width="24" height="28" rx="3"/><path d="M13 15h14m-14 7h14m-14 6h9"/></svg></span></div>
       <h2 class="title mid">
-        <div class="reveal" style="--d:.12s">DOS EXTREMOS</div>
-        <div class="reveal inverse" style="--d:.22s">INEFICIENTES.</div>
+        <div class="reveal" style="--d:.1s">DOS EXTREMOS</div>
+        <div class="reveal accent" style="--d:.2s">INEFICIENTES.</div>
       </h2>
-      <p class="intro reveal" style="--d:.38s">
+      <p class="intro reveal" style="--d:.3s">
         Hoy el médico de atención primaria se encuentra atrapado entre dos opciones inviables:
       </p>
     </div>
-    <div class="duo-grid reveal" style="--d:.5s">
+    <div class="duo-grid reveal" style="--d:.4s">
       <div class="duo-card">
         <b>$300 – $600 USD</b>
         <strong>Estetoscopios Electrónicos Hospitalarios</strong>
@@ -332,7 +330,7 @@ html,body{overflow-x:hidden;width:100%}
         <p>Relojes y pulseras de consumo que inventan valores de SpO2, HRV o presiones arteriales no medibles mediante algoritmos generativos sin sensores calibrados.</p>
       </div>
     </div>
-    <div class="problem-tail-bar reveal" style="--d:.7s">
+    <div class="problem-tail-bar reveal" style="--d:.55s">
       <span>LA RESPUESTA: SPIROSCAN AI</span>
       <span class="pill" style="border-color:var(--blue);color:var(--blue)">HARDWARE ABIERTO · RIGOR CLÍNICO</span>
     </div>
@@ -340,88 +338,268 @@ html,body{overflow-x:hidden;width:100%}
 </section>
 
 <!-- BLOQUE 02: LA PROPUESTA -->
-<section class="slide prototype" data-skin="prototype" data-name="Las 4 capacidades" aria-label="Acto 5 de 6: Las 4 Capacidades Integradas">
+<section class="slide prototype" data-skin="prototype" data-name="Las 4 capacidades" aria-label="Acto 5 de 11: Las 4 Capacidades Integradas">
   <div class="slide-inner">
     <div>
       <div class="kicker reveal">02 / LA PROPUESTA · VISTA GENERAL<span class="kicker-icon" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="10" width="20" height="20" rx="3"/><path d="M16 16h8v8h-8M4 16h6m-6 8h6m20-8h6m-6 8h6M16 4v6m8-6v6m-8 20v6m8-6v6"/></svg></span></div>
       <h2 class="title mid">
-        <div class="reveal" style="--d:.12s">CUATRO CAPACIDADES.</div>
-        <div class="reveal accent" style="--d:.22s">UN SOLO SISTEMA.</div>
+        <div class="reveal" style="--d:.1s">CUATRO CAPACIDADES.</div>
+        <div class="reveal accent" style="--d:.2s">UN SOLO SISTEMA.</div>
       </h2>
-      <p class="intro reveal" style="--d:.36s">
-        Materializamos el concepto de <em>"un segundo par de oídos para el médico general"</em> a través de una arquitectura integrada de tamizaje y telemetría:
+      <p class="intro reveal" style="--d:.3s">
+        Materializamos <em>"un segundo par de oídos para el médico general"</em> en cuatro etapas integradas:
       </p>
     </div>
-    <div class="caps-grid reveal" style="--d:.5s">
+    <div class="caps-grid reveal" style="--d:.4s">
       <div class="cap-card">
         <b>01</b>
         <strong>Captura Digital I2S</strong>
-        <p>Aislamiento y realce activo de frecuencias cardíacas graves (&lt;200 Hz) y pulmonares agudas (&gt;400 Hz) sin pérdida analógica.</p>
+        <p>Aislamiento y realce activo de graves cardíacos (&lt;200 Hz) y agudos pulmonares (&gt;400 Hz) sin pérdida analógica.</p>
       </div>
       <div class="cap-card">
         <b>02</b>
-        <strong>Memoria Acústica Local</strong>
-        <p>Almacenamiento local en LittleFS. El médico puede pausar, volver a escuchar, medir y contrastar la auscultación sin prisa.</p>
+        <strong>Memoria Acústica</strong>
+        <p>Almacenamiento local en LittleFS. El médico puede pausar, repetir, medir y contrastar la auscultación sin prisa.</p>
       </div>
       <div class="cap-card">
         <b>03</b>
         <strong>Clasificación por IA</strong>
-        <p>Redes neuronales convolucionales entrenadas con bases internacionales para detectar sibilancias y patrones acústicos de riesgo.</p>
+        <p>Redes convolucionales entrenadas internacionalmente para clasificar sibilancias y patrones compatibles con soplos.</p>
       </div>
       <div class="cap-card">
         <b>04</b>
         <strong>Triaje y Reporte PDF</strong>
-        <p>Semáforo clínico protocolizado de prioridad vital y generación automática de informe trazable para referencia médica.</p>
+        <p>Semáforo de prioridad vital protocolizado y generación automática de informe clínico trazable en la misma consulta.</p>
       </div>
     </div>
-    <div class="problem-tail-bar reveal" style="--d:.7s">
+    <div class="problem-tail-bar reveal" style="--d:.55s">
       <span>SPIROSCAN AI: TAMIZAJE ORIENTATIVO DE BAJO COSTO</span>
-      <span class="pill" style="border-color:var(--blue);color:var(--blue)">4 CAPACIDADES EN LA CONSULTA</span>
+      <span class="pill" style="border-color:var(--blue);color:var(--blue)">FLUJO CLÍNICO COMPLETO</span>
     </div>
   </div>
 </section>
 
-<section class="slide prototype" data-skin="prototype" data-name="Diferenciadores y ética" aria-label="Acto 6 de 6: Diferenciadores y Honestidad Clínica">
+<section class="slide prototype" data-skin="prototype" data-name="Hardware y ecosistema" aria-label="Acto 6 de 11: Hardware Abierto y Ecosistema">
   <div class="slide-inner">
     <div>
-      <div class="kicker reveal">02.1 / DIFERENCIADORES Y ÉTICA DE DATOS<span class="kicker-icon" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span></div>
+      <div class="kicker reveal">02.1 / ARQUITECTURA Y EXPERIENCIA<span class="kicker-icon" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="26" height="19" rx="2"/><path d="M11 29h10m-5-5v5M6 16h5l2-4 4 8 3-4h6"/></svg></span></div>
       <h2 class="title mid">
-        <div class="reveal" style="--d:.12s">HONESTIDAD CLÍNICA.</div>
-        <div class="reveal accent" style="--d:.22s">CERO INVENTOS.</div>
+        <div class="reveal" style="--d:.1s">HARDWARE ABIERTO.</div>
+        <div class="reveal accent" style="--d:.2s">ECOSISTEMA EDGE.</div>
       </h2>
-      <p class="intro reveal" style="--d:.36s">
-        Cuatro diferenciadores irrenunciables que separan a SpiroScan AI de cualquier juguete o producto comercial de caja negra:
+      <p class="intro reveal" style="--d:.3s">
+        Dos pilares de ingeniería que garantizan bajo costo, alta fidelidad acústica y soberanía de datos del paciente:
       </p>
     </div>
-    <div class="diff-grid reveal" style="--d:.5s">
-      <div class="diff-card">
-        <b>01. HARDWARE ABIERTO Y DESACOPLADO</b>
+    <div class="duo-grid reveal" style="--d:.4s">
+      <div class="duo-card">
+        <b>01. HARDWARE HÍBRIDO ABIERTO</b>
         <strong>ESP32 + MEMS INMP441 (I2S) + MAX30102 (I2C)</strong>
-        <p>Arquitectura modular de bajo costo con microcontrolador de doble núcleo, buffer en LittleFS y transmisión HTTPS segura.</p>
+        <p>Microcontrolador dual-core con búfer en LittleFS y transmisión segura HTTPS. Captura desacoplada sin depender forzosamente de servidores en la nube.</p>
       </div>
-      <div class="diff-card">
-        <b>02. TRIAJE DETERMINISTA (FDA / NICE)</b>
-        <strong>Prioridad Vital Absoluta sobre los Números</strong>
-        <p>Reglas estrictas (clinical_assessment.py): síntomas de alarma (disnea aguda, dolor opresivo, cianosis) activan ROJO inmediato prevaleciendo sobre signos vitales estables.</p>
-      </div>
-      <div class="diff-card honest">
-        <b>03. GESTIÓN DE INCERTIDUMBRE (SEMÁFORO GRIS)</b>
-        <strong>Cero Datos Fabricados</strong>
-        <p>Si un sensor no está calibrado físicamente o la señal tiene ruido, el sistema asume la duda y marca datos insuficientes. SpO₂ permanece como no disponible hasta calibración.</p>
-      </div>
-      <div class="diff-card">
-        <b>04. ECOSISTEMA APP 60 FPS + LLM LOCAL</b>
+      <div class="duo-card">
+        <b>02. APP 60 FPS + ASISTENTE LOCAL</b>
         <strong>Torso Anatómico Interactivo + Ollama</strong>
-        <p>Guía de auscultación en 4 focos cardíacos y pulmonares, banco de pruebas integrado y asistente local LLaMA 3.2 sin filtración de datos de pacientes a la nube.</p>
+        <p>Interfaz multiplataforma en React Native que guía la auscultación en 4 focos cardíacos y pulmonares, con modelo LLaMA local para explicar hallazgos sin alucinaciones.</p>
       </div>
     </div>
-    <div class="problem-tail-bar reveal" style="--d:.7s">
-      <span>RESPALDO NORMATIVO: DIRECTRICES FDA · NHLBI · NICE NG115/NG245</span>
+    <div class="problem-tail-bar reveal" style="--d:.55s">
+      <span>TECNOLOGÍA REPRODUCIBLE · OFFLINE-FIRST</span>
+      <span class="pill" style="border-color:var(--blue);color:var(--blue)">ARQUITECTURA 4 CAPAS</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide lung" data-skin="lung" data-name="Rigor clínico y ética" aria-label="Acto 7 de 11: Rigor Clínico y Ética de Datos">
+  <div class="slide-inner">
+    <div>
+      <div class="kicker reveal">02.2 / ÉTICA BIOMÉDICA Y TRIAJE<span class="kicker-icon" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span></div>
+      <h2 class="title mid">
+        <div class="reveal" style="--d:.1s">HONESTIDAD CLÍNICA.</div>
+        <div class="reveal accent" style="--d:.2s">CERO INVENTOS.</div>
+      </h2>
+      <p class="intro reveal" style="--d:.3s">
+        Decisiones éticas y normativas que priorizan la seguridad del paciente sobre promesas comerciales infundadas:
+      </p>
+    </div>
+    <div class="duo-grid reveal" style="--d:.4s">
+      <div class="duo-card honest">
+        <b>01. TRIAJE DETERMINISTA (FDA / NICE)</b>
+        <strong>Prioridad Vital sobre los Números</strong>
+        <p>Motor de reglas clínicas estrictas: síntomas de alarma (disnea aguda, dolor opresivo, cianosis) activan ROJO inmediato prevaleciendo sobre signos numéricos estables.</p>
+      </div>
+      <div class="duo-card honest">
+        <b>02. SEMÁFORO GRIS (INCERTIDUMBRE)</b>
+        <strong>Cero Datos Fabricados</strong>
+        <p>Si un sensor no está calibrado físicamente o la señal presenta ruido, el sistema asume la duda y marca "Datos Insuficientes". SpO₂ permanece no disponible hasta validación real.</p>
+      </div>
+    </div>
+    <div class="problem-tail-bar reveal" style="--d:.55s">
+      <span>DIRECTRICES CLÍNICAS: FDA · NHLBI · NICE NG115/NG245</span>
       <span class="pill" style="border-color:#047857;color:#047857">HONESTIDAD CIENTÍFICA</span>
     </div>
   </div>
 </section>
-</main><div class="simulation-banner" id="simulationBanner" hidden>SIMULACIÓN</div><div class="wipe" id="wipe" aria-hidden="true"></div><footer class="footer"><div class="step-no"><span id="actNo">01</span><span> / 06</span></div><button class="timer timer-trigger" type="button" id="timingBtn" aria-label="Configurar tiempo y bucle" title="Configurar tiempo y bucle (T)"><svg class="timer-ring" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="16" pathLength="100"/><circle id="clockRing" cx="20" cy="20" r="16" pathLength="100"/></svg><span class="time-value"><span id="timeText">1:00</span><small>RESTANTE · AJUSTAR</small></span><span class="loop-indicator" id="loopIndicator" aria-hidden="true">↻</span></button><button class="timer-control" id="pauseBtn">PAUSAR Ⅱ</button><div class="timeline" id="timeline" aria-label="Progreso de la presentación"></div><button class="mode-toggle" id="modeBtn" type="button" aria-label="Cambiar a datos simulados" aria-pressed="false" title="Alternar datos reales y simulados (D)"><i class="mode-light" aria-hidden="true"></i><span id="modeText">REAL</span></button><button class="api-button" id="setupBtn" aria-label="Configurar conexión API" title="Conectar API (C)"><span class="connection" id="connection"><span class="dot"></span><span id="connectionText">SIN API</span></span></button><div class="foot-nav"><button id="prevBtn" aria-label="Acto anterior" disabled>←</button><button id="nextBtn" aria-label="Acto siguiente">→</button></div><button class="full-button" id="fullBtn" title="Pantalla completa (F)" aria-label="Pantalla completa">⛶</button><div class="mascot-dock" id="mascotDock" role="img" aria-label="Spi, mini doctor animado que acompaña la presentación"><svg viewBox="0 0 120 140" aria-hidden="true"><ellipse cx="61" cy="132" rx="38" ry="6" fill="currentColor" opacity=".16"/><path d="M48 109v20m24-20v20" fill="none" stroke="#27435d" stroke-width="9" stroke-linecap="round"/><path class="doctor-body" d="M36 76q5-13 24-13t25 13l5 42H30Z" fill="#fff" stroke="#29435b" stroke-width="3"/><path d="M59 66 47 82l13 34 13-34-13-16" fill="#d9edfb"/><path d="M60 80v37" stroke="#79add1" stroke-width="2.5"/><path class="mascot-left-arm" d="M38 80 19 99" fill="none" stroke="#f0bd9e" stroke-width="11" stroke-linecap="round"/><circle cx="18" cy="101" r="6" fill="#f0bd9e"/><path class="mascot-arm" d="M82 79 105 46" fill="none" stroke="#f0bd9e" stroke-width="11" stroke-linecap="round"/><circle cx="105" cy="45" r="7" fill="#f0bd9e"/><circle cx="60" cy="39" r="25" fill="#f0bd9e" stroke="#29435b" stroke-width="2.5"/><path class="mascot-cap" d="M35 31c1-13 11-19 25-19s24 6 25 19l-2 4q-23 6-46 0Z" fill="#1d4ed8" stroke="#29435b" stroke-width="2"/><path d="M38 34q22 6 44 0" fill="none" stroke="#153e9b" stroke-width="2.4" stroke-linecap="round"/><rect x="54" y="18" width="12" height="11" rx="2" fill="#fff"/><path d="M60 20v7m-3.5-3.5h7" stroke="#be123c" stroke-width="1.9" stroke-linecap="round"/><ellipse class="mascot-eye" cx="51" cy="42" rx="3" ry="3.5" fill="#263d59"/><ellipse class="mascot-eye" cx="69" cy="42" rx="3" ry="3.5" fill="#263d59"/><circle cx="43" cy="49" r="4" fill="#e3928c" opacity=".58"/><circle cx="77" cy="49" r="4" fill="#e3928c" opacity=".58"/><path d="M52 53q8 7 16 0" fill="none" stroke="#a34e58" stroke-width="2.7" stroke-linecap="round"/><path d="M48 82q-7 17 12 23 19-6 12-23" fill="none" stroke="#29435b" stroke-width="3"/><circle cx="60" cy="107" r="5" fill="#29435b"/><rect x="70" y="91" width="13" height="14" rx="2" fill="#e3f2ff" stroke="#76a6ca"/><path d="M76.5 94v8m-4-4h8" stroke="#be123c" stroke-width="2"/><g class="mascot-scan-rings" aria-hidden="true"><circle class="mascot-scan-a" cx="103" cy="29" r="15" fill="none" stroke="currentColor" stroke-width="2"/><circle class="mascot-scan-b" cx="103" cy="29" r="15" fill="none" stroke="currentColor" stroke-width="2"/></g><g class="mascot-prop prop-problem"><text x="93" y="38" fill="#1d4ed8" font-size="31" font-weight="900">?</text></g><g class="mascot-prop prop-prototype"><rect x="92" y="18" width="22" height="22" rx="3" fill="#eaf2ff" stroke="#1d4ed8" stroke-width="3"/><path d="M98 25h10v9H98" fill="none" stroke="#1d4ed8" stroke-width="2"/></g><g class="mascot-prop prop-lung"><path d="M97 20c-10-5-14 9-10 17 3 6 9 2 10-5m8-12c10-5 14 9 10 17-3 6-9 2-10-5m-4-14v14" fill="#81d9ef" stroke="#0369a1" stroke-width="2.3"/></g><g class="mascot-prop prop-heart"><path d="M102 43 89 30c-8-9 2-20 11-11l2 3 3-3c9-9 19 2 11 11Z" fill="#be123c"/></g><g class="mascot-prop prop-ai"><path d="m102 13 4 10 10 4-10 4-4 10-4-10-10-4 10-4Z" fill="#b794f6" stroke="#6d28d9" stroke-width="2.5"/></g><g class="mascot-prop prop-mint"><circle cx="103" cy="28" r="14" fill="#a6efcf" stroke="#047857" stroke-width="2.5"/><text x="97" y="33" fill="#047857" font-size="16" font-weight="900">Q</text></g><g class="mascot-prop prop-pricing"><rect x="90" y="18" width="26" height="24" rx="3" fill="#ffe2a0" stroke="#a45c08" stroke-width="2.5"/><path d="M95 27h16m-16 7h10" stroke="#a45c08" stroke-width="2"/></g><g class="mascot-prop prop-growth"><path d="M87 41 113 15m-12 0h12v12" fill="none" stroke="#76dfba" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div></footer></div>
+
+<!-- BLOQUE 05: VIABILIDAD, COSTES E IMPACTO -->
+<section class="slide mint" data-skin="mint" data-name="Costo unitario BOM" aria-label="Acto 8 de 11: Estructura de Costo de Fabricación">
+  <div class="slide-inner">
+    <div>
+      <div class="kicker reveal">05 / VIABILIDAD Y COSTOS · BOM UNITARIO<span class="kicker-icon" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="20" r="15"/><path d="M26 14c-5-3-12-1-12 3 0 6 12 1 12 7 0 4-7 6-13 2m7-17v22"/></svg></span></div>
+      <h2 class="title mid">
+        <div class="reveal" style="--d:.1s">FABRICARLO CUESTA</div>
+        <div class="reveal highlight-green" style="--d:.2s">Q1,149.87 / EQUIPO.</div>
+      </h2>
+      <p class="intro reveal" style="--d:.3s">
+        Desglose oficial de ingeniería (BOM auditado) frente al mercado internacional de $400–$600 USD:
+      </p>
+    </div>
+    <div class="tri-grid reveal" style="--d:.4s">
+      <div class="tri-card green">
+        <b>Q1,149.87</b>
+        <strong>Costo Unitario de Fabricación</strong>
+        <p>ESP32 (Q150) + INMP441 (Q90) + MAX30102 (Q45) + WS2812 (Q50) + Batería Li-Ion y cargador (Q103) + Carcasa 3D PLA/TPU (Q14.28) + Empaque y garantía industrial (Q615) + Ensamble.</p>
+      </div>
+      <div class="tri-card green">
+        <b>Q1,786.00</b>
+        <strong>Precio de Venta (Sin IVA)</strong>
+        <p>Cubre costo directo de fabricación, 4 horas de ensamble técnico calificado y margen bruto para operación.</p>
+      </div>
+      <div class="tri-card green">
+        <b>Q546.00</b>
+        <strong>Ganancia Neta / Equipo</strong>
+        <p>Utilidad líquida por dispositivo colocado, descontando costo directo de manufactura, IVA e impuesto sobre la renta (ISR).</p>
+      </div>
+    </div>
+    <div class="problem-tail-bar reveal" style="--d:.55s">
+      <span>MERCADO INTERNACIONAL: $400–$600 USD (Q2,500 – Q5,000)</span>
+      <span class="pill" style="border-color:#047857;color:#047857">AHORRO MAYOR AL 55%</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide pricing" data-skin="pricing" data-name="Planes comerciales" aria-label="Acto 9 de 11: Modelo de 4 Planes Comerciales">
+  <div class="slide-inner">
+    <div>
+      <div class="kicker reveal">05.1 / MODELO COMERCIAL · CUATRO MODALIDADES<span class="kicker-icon" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="6" width="24" height="28" rx="3"/><path d="M13 15h14m-14 7h14m-14 6h9"/></svg></span></div>
+      <h2 class="title mid">
+        <div class="reveal" style="--d:.1s">CUATRO PLANES.</div>
+        <div class="reveal highlight-gold" style="--d:.2s">ACCESO FLEXIBLE.</div>
+      </h2>
+      <p class="intro reveal" style="--d:.3s">
+        Estrategia de adopción adaptada a las posibilidades de consultorios privados, clínicas y puestos de salud:
+      </p>
+    </div>
+    <div class="plans-grid reveal" style="--d:.4s">
+      <div class="plan-item">
+        <label>01. CONSULTORIO (Compra directa)</label>
+        <strong>Q2,000 <small style="font-size:12px;letter-spacing:0">HOY</small></strong>
+        <p>Q280 / mes</p>
+        <span>Propiedad del hardware + plataforma activa. (Punto equilibrio: 138 clientes).</span>
+      </div>
+      <div class="plan-item no-upfront">
+        <label>02. EN CUOTAS (12 meses, +10%)</label>
+        <strong>Q0 <small style="font-size:12px;letter-spacing:0">HOY</small></strong>
+        <p>Q463 / mes × 12</p>
+        <span>Sin desembolso inicial. Al mes 13 baja a Q280/mes. (Equilibrio: 138 clientes).</span>
+      </div>
+      <div class="plan-item">
+        <label>03. CLÍNICA (3 equipos, -10%)</label>
+        <strong>Q5,399 <small style="font-size:12px;letter-spacing:0">HOY</small></strong>
+        <p>Q672 / mes</p>
+        <span>Paquete de 3 dispositivos para centros con múltiples médicos. (Equilibrio: 58 clientes).</span>
+      </div>
+      <div class="plan-item no-upfront">
+        <label>04. COMUNITARIO / ONG (Alquiler)</label>
+        <strong>Q0 <small style="font-size:12px;letter-spacing:0">HOY</small></strong>
+        <p>Q504 / mes</p>
+        <span>Gasto operativo puro para brigadas rurales y centros comunitarios. (Equilibrio: 83 clientes).</span>
+      </div>
+    </div>
+    <div class="problem-tail-bar reveal" style="--d:.55s">
+      <span>ACLARACIÓN DE TRANSPARENCIA: Q0 HOY NO SIGNIFICA GRATIS</span>
+      <span class="pill" style="border-color:#a45c08;color:#a45c08">MODELO SOSTENIBLE</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide growth" data-skin="growth" data-name="Punto de equilibrio" aria-label="Acto 10 de 11: Proyección Financiera a 12 Meses">
+  <div class="slide-inner">
+    <div>
+      <div class="kicker reveal">05.2 / TRACCIÓN Y SOSTENIBILIDAD A 12 MESES<span class="kicker-icon" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="30" r="3"/><circle cx="20" cy="21" r="3"/><circle cx="32" cy="10" r="3"/><path d="m10 28 7-6m6-3 6-7m-6-2h9v9"/></svg></span></div>
+      <h2 class="title mid">
+        <div class="reveal" style="--d:.1s">PUNTO DE EQUILIBRIO.</div>
+        <div class="reveal highlight-mint" style="--d:.2s">ALCANZADO EN EL MES 8.</div>
+      </h2>
+      <p class="intro reveal" style="--d:.3s">
+        Corrida financiera con gastos fijos operativos de <strong>Q32,575.00 / mes</strong> e inversión inicial de <strong>Q34,583.00</strong>:
+      </p>
+    </div>
+    <div class="growth-grid reveal" style="--d:.4s">
+      <div class="growth-stat">
+        <b>MES 8</b>
+        <strong>Punto de Equilibrio Mensual</strong>
+        <p>Con 103 suscriptores activos, el flujo operativo pasa a terreno positivo con +Q2,815.00 netos al mes.</p>
+      </div>
+      <div class="growth-stat">
+        <b>MES 12</b>
+        <strong>Rentabilidad Consolidada</strong>
+        <p>195 equipos activos colocados generan una ganancia neta mensual de +Q27,397.00 / mes.</p>
+      </div>
+      <div class="growth-stat">
+        <b>Q152,183</b>
+        <strong>Valle de Caja Máximo</strong>
+        <p>Capital de trabajo acumulado requerido en el Mes 7 antes de que el flujo se vuelva positivo permanentemente.</p>
+      </div>
+      <div class="growth-stat">
+        <b>Q600,676</b>
+        <strong>Ingresos Brutos Año 1</strong>
+        <p>Facturación anual proyectada (sin IVA) cubriendo Q224,225 de producción y Q390,899 de gastos fijos.</p>
+      </div>
+    </div>
+    <div class="problem-tail-bar reveal" style="--d:.55s">
+      <span>GASTOS FIJOS: Q32,575 / MES (SUELDOS + SERVIDOR + LEGAL + SERVICIOS)</span>
+      <span class="pill" style="border-color:#76dfba;color:#76dfba">SOSTENIBILIDAD REAL</span>
+    </div>
+  </div>
+</section>
+
+<section class="slide mint" data-skin="mint" data-name="Impacto y hoja de ruta" aria-label="Acto 11 de 11: Retorno Social y Hoja de Ruta">
+  <div class="slide-inner">
+    <div>
+      <div class="kicker reveal">05.3 / IMPACTO SOCIAL Y HOJA DE RUTA<span class="kicker-icon" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="20" r="16"/><path d="M20 10v10l7 4"/></svg></span></div>
+      <h2 class="title mid">
+        <div class="reveal" style="--d:.1s">RETORNO SOCIAL.</div>
+        <div class="reveal highlight-green" style="--d:.2s">HOJA DE RUTA EN 3 FASES.</div>
+      </h2>
+      <p class="intro reveal" style="--d:.3s">
+        De la validación experimental en la Feria 2026 hacia el despliegue en puestos de salud comunitarios:
+      </p>
+    </div>
+    <div class="tri-grid reveal" style="--d:.4s">
+      <div class="tri-card green">
+        <b>FASE 1 · AHORA</b>
+        <strong>Validación Experimental</strong>
+        <p>Prototipo funcional validado, captura física I2S en hardware real de 15 s, modelos de IA auditados (89.7% sens) y app con banco de pruebas.</p>
+      </div>
+      <div class="tri-card green">
+        <b>FASE 2 · CORTO PLAZO</b>
+        <strong>Calibración y Hardware</strong>
+        <p>Corrección física de continuidad I2C en sensor óptico, calibración de SpO2 contra oxímetro de grado clínico y ecualización en fantoma.</p>
+      </div>
+      <div class="tri-card green">
+        <b>FASE 3 · MEDIANO PLAZO</b>
+        <strong>Piloto Clínico Rural</strong>
+        <p>Ensayo piloto en puestos de salud comunitarios para validar descongestión de urgencias y reducción de sobrecostos hospitalarios.</p>
+      </div>
+    </div>
+    <div class="problem-tail-bar reveal" style="--d:.55s">
+      <span>SPIROSCAN AI (VITALSYNC) · FERIA TECNOLÓGICA 2026</span>
+      <span class="pill" style="border-color:#047857;color:#047857">UN SEGUNDO PAR DE OÍDOS</span>
+    </div>
+  </div>
+</section>
+</main><div class="simulation-banner" id="simulationBanner" hidden>SIMULACIÓN</div><div class="wipe" id="wipe" aria-hidden="true"></div><footer class="footer"><div class="step-no"><span id="actNo">01</span><span> / 11</span></div><button class="timer timer-trigger" type="button" id="timingBtn" aria-label="Configurar tiempo y bucle" title="Configurar tiempo y bucle (T)"><svg class="timer-ring" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="16" pathLength="100"/><circle id="clockRing" cx="20" cy="20" r="16" pathLength="100"/></svg><span class="time-value"><span id="timeText">1:00</span><small>RESTANTE · AJUSTAR</small></span><span class="loop-indicator" id="loopIndicator" aria-hidden="true">↻</span></button><button class="timer-control" id="pauseBtn">PAUSAR Ⅱ</button><div class="timeline" id="timeline" aria-label="Progreso de la presentación"></div><button class="mode-toggle" id="modeBtn" type="button" aria-label="Cambiar a datos simulados" aria-pressed="false" title="Alternar datos reales y simulados (D)"><i class="mode-light" aria-hidden="true"></i><span id="modeText">REAL</span></button><button class="api-button" id="setupBtn" aria-label="Configurar conexión API" title="Conectar API (C)"><span class="connection" id="connection"><span class="dot"></span><span id="connectionText">SIN API</span></span></button><div class="foot-nav"><button id="prevBtn" aria-label="Acto anterior" disabled>←</button><button id="nextBtn" aria-label="Acto siguiente">→</button></div><button class="full-button" id="fullBtn" title="Pantalla completa (F)" aria-label="Pantalla completa">⛶</button><div class="mascot-dock" id="mascotDock" role="img" aria-label="Spi, mini doctor animado que acompaña la presentación"><svg viewBox="0 0 120 140" aria-hidden="true"><ellipse cx="61" cy="132" rx="38" ry="6" fill="currentColor" opacity=".16"/><path d="M48 109v20m24-20v20" fill="none" stroke="#27435d" stroke-width="9" stroke-linecap="round"/><path class="doctor-body" d="M36 76q5-13 24-13t25 13l5 42H30Z" fill="#fff" stroke="#29435b" stroke-width="3"/><path d="M59 66 47 82l13 34 13-34-13-16" fill="#d9edfb"/><path d="M60 80v37" stroke="#79add1" stroke-width="2.5"/><path class="mascot-left-arm" d="M38 80 19 99" fill="none" stroke="#f0bd9e" stroke-width="11" stroke-linecap="round"/><circle cx="18" cy="101" r="6" fill="#f0bd9e"/><path class="mascot-arm" d="M82 79 105 46" fill="none" stroke="#f0bd9e" stroke-width="11" stroke-linecap="round"/><circle cx="105" cy="45" r="7" fill="#f0bd9e"/><circle cx="60" cy="39" r="25" fill="#f0bd9e" stroke="#29435b" stroke-width="2.5"/><path class="mascot-cap" d="M35 31c1-13 11-19 25-19s24 6 25 19l-2 4q-23 6-46 0Z" fill="#1d4ed8" stroke="#29435b" stroke-width="2"/><path d="M38 34q22 6 44 0" fill="none" stroke="#153e9b" stroke-width="2.4" stroke-linecap="round"/><rect x="54" y="18" width="12" height="11" rx="2" fill="#fff"/><path d="M60 20v7m-3.5-3.5h7" stroke="#be123c" stroke-width="1.9" stroke-linecap="round"/><ellipse class="mascot-eye" cx="51" cy="42" rx="3" ry="3.5" fill="#263d59"/><ellipse class="mascot-eye" cx="69" cy="42" rx="3" ry="3.5" fill="#263d59"/><circle cx="43" cy="49" r="4" fill="#e3928c" opacity=".58"/><circle cx="77" cy="49" r="4" fill="#e3928c" opacity=".58"/><path d="M52 53q8 7 16 0" fill="none" stroke="#a34e58" stroke-width="2.7" stroke-linecap="round"/><path d="M48 82q-7 17 12 23 19-6 12-23" fill="none" stroke="#29435b" stroke-width="3"/><circle cx="60" cy="107" r="5" fill="#29435b"/><rect x="70" y="91" width="13" height="14" rx="2" fill="#e3f2ff" stroke="#76a6ca"/><path d="M76.5 94v8m-4-4h8" stroke="#be123c" stroke-width="2"/><g class="mascot-scan-rings" aria-hidden="true"><circle class="mascot-scan-a" cx="103" cy="29" r="15" fill="none" stroke="currentColor" stroke-width="2"/><circle class="mascot-scan-b" cx="103" cy="29" r="15" fill="none" stroke="currentColor" stroke-width="2"/></g><g class="mascot-prop prop-problem"><text x="93" y="38" fill="#1d4ed8" font-size="31" font-weight="900">?</text></g><g class="mascot-prop prop-prototype"><rect x="92" y="18" width="22" height="22" rx="3" fill="#eaf2ff" stroke="#1d4ed8" stroke-width="3"/><path d="M98 25h10v9H98" fill="none" stroke="#1d4ed8" stroke-width="2"/></g><g class="mascot-prop prop-lung"><path d="M97 20c-10-5-14 9-10 17 3 6 9 2 10-5m8-12c10-5 14 9 10 17-3 6-9 2-10-5m-4-14v14" fill="#81d9ef" stroke="#0369a1" stroke-width="2.3"/></g><g class="mascot-prop prop-heart"><path d="M102 43 89 30c-8-9 2-20 11-11l2 3 3-3c9-9 19 2 11 11Z" fill="#be123c"/></g><g class="mascot-prop prop-ai"><path d="m102 13 4 10 10 4-10 4-4 10-4-10-10-4 10-4Z" fill="#b794f6" stroke="#6d28d9" stroke-width="2.5"/></g><g class="mascot-prop prop-mint"><circle cx="103" cy="28" r="14" fill="#a6efcf" stroke="#047857" stroke-width="2.5"/><text x="97" y="33" fill="#047857" font-size="16" font-weight="900">Q</text></g><g class="mascot-prop prop-pricing"><rect x="90" y="18" width="26" height="24" rx="3" fill="#ffe2a0" stroke="#a45c08" stroke-width="2.5"/><path d="M95 27h16m-16 7h10" stroke="#a45c08" stroke-width="2"/></g><g class="mascot-prop prop-growth"><path d="M87 41 113 15m-12 0h12v12" fill="none" stroke="#76dfba" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div></footer></div>
 <div class="overlay" id="setupOverlay" role="dialog" aria-modal="true" aria-labelledby="setupTitle"><div class="modal wide"><div class="modal-head"><div><div class="kicker">CONFIGURACIÓN EN VIVO</div><h2 id="setupTitle">CONECTAR DISPOSITIVO</h2></div><button class="close" data-close aria-label="Cerrar">×</button></div><p>El servidor compartido está apagado por ahora. Puedes usar DEMO para visualizar la interfaz con datos sintéticos etiquetados, sin conexión. Para mostrar lecturas reales, enciende FastAPI, accede a Tailscale desde este navegador y usa una sesión de demostración.</p><div class="modal-grid"><div><label for="baseUrl">URL BASE DE FASTAPI</label><input id="baseUrl" type="url" spellcheck="false" value="https://spiroscan.tail8e9fc2.ts.net" placeholder="https://servidor.example"></div><div><label for="sessionId">SESSION_ID DE DEMOSTRACIÓN</label><input id="sessionId" spellcheck="false" autocomplete="off" placeholder="ID de sesión ya creada"></div></div><label for="apiToken">TOKEN BEARER (SI EXISTE · NO SE GUARDA)</label><input id="apiToken" type="password" autocomplete="off" placeholder="Solo para esta pestaña"><p class="hint">El navegador debe poder acceder a la red Tailscale. Si hay bloqueo CORS, el backend deberá permitir el origen de la página o se necesitará un proxy de confianza. No introduzcas datos de pacientes reales para una presentación pública.</p><details><summary style="font-size:11px;font-weight:900;cursor:pointer;margin-top:18px">AJUSTES AVANZADOS · CUERPO JSON DE LAS ACCIONES</summary><p class="hint">Se conocen las rutas, pero no el esquema exacto de sus cuerpos. Puedes ajustar las plantillas según tu backend. Variables: <code>{session_id}</code>, <code>{focus}</code>, <code>{zone}</code> y <code>{message}</code>. Para pulmón, selecciona una zona; ajusta el cuerpo si tu API usa otro nombre de campo. Ninguna acción POST se ejecuta automáticamente.</p><label for="armTemplate">POST /api/audio/arm · cardíaco</label><textarea id="armTemplate">{"session_id":"{session_id}","focus":"{focus}"}</textarea><label for="lungTemplate">POST /api/audio/arm · pulmonar</label><textarea id="lungTemplate">{"session_id":"{session_id}","focus":"pulmonar","zone":"{zone}"}</textarea><label for="linkTemplate">POST /api/device/link</label><textarea id="linkTemplate">{"session_id":"{session_id}"}</textarea><label for="chatTemplate">POST /api/ai/chat</label><textarea id="chatTemplate">{"session_id":"{session_id}","message":"{message}"}</textarea></details><div class="modal-actions"><button class="primary-btn" id="connectBtn">PROBAR Y CONECTAR ↗</button><button class="outline-btn" id="linkBtn" disabled>VINCULAR ESP32</button><button class="outline-btn" id="disconnectBtn">DESCONECTAR</button></div><div class="log" id="apiLog" role="status" aria-live="polite">Sin conexión. El contador de la presentación funciona de forma independiente.</div></div></div>
 <div class="overlay" id="timingOverlay" role="dialog" aria-modal="true" aria-labelledby="timingTitle"><div class="modal timing-modal"><div class="modal-head"><div><div class="kicker">CONTROL DE PRESENTACIÓN</div><h2 id="timingTitle">TIEMPO Y BUCLE</h2></div><button class="close" data-close aria-label="Cerrar">×</button></div><p>Elige cuánto permanece cada página. El contador se pausa mientras ajustas el tiempo.</p><label for="globalSeconds">SEGUNDOS PARA TODAS LAS PÁGINAS</label><div class="timing-global"><input id="globalSeconds" type="number" inputmode="numeric" min="5" max="1800" step="1" value="60"><div class="time-presets" role="group" aria-label="Duraciones rápidas"><button type="button" data-preset="5">5 s</button><button type="button" data-preset="15">15 s</button><button type="button" data-preset="30">30 s</button><button type="button" data-preset="60">1 min</button><button type="button" data-preset="90">1:30</button><button type="button" data-preset="120">2 min</button></div></div><label class="loop-option" for="loopToggle"><input id="loopToggle" type="checkbox" checked><span><strong>REPETIR EN BUCLE</strong><small>Después de la última página, volver a la primera.</small></span></label><details class="timing-details"><summary>UN TIEMPO DIFERENTE PARA CADA PÁGINA</summary><p class="hint">Deja un campo vacío para usar el tiempo general. Valores entre 5 y 1800 segundos.</p><div class="per-act-times" id="perActTimes"></div></details><div class="modal-actions"><button class="primary-btn" id="applyTiming" type="button">APLICAR CAMBIOS ↗</button><button class="outline-btn" id="resetTiming" type="button">RESTABLECER 60 s</button></div><p class="timing-summary" id="timingSummary" role="status" aria-live="polite">11 actos · 11:00 en total · bucle activado</p></div></div>
 <div class="overlay" id="indexOverlay" role="dialog" aria-modal="true" aria-labelledby="indexTitle"><div class="modal"><div class="modal-head"><div><div class="kicker" id="sequenceDurationText">SECUENCIA · 11:00</div><h2 id="indexTitle">LOS 11 ACTOS</h2></div><button class="close" data-close aria-label="Cerrar">×</button></div><div class="index-list" id="indexList"></div><p class="hint">El tiempo puede cambiarse tocando el reloj. Al terminar, la secuencia vuelve al comienzo si el bucle está activado.</p></div></div>
@@ -436,7 +614,12 @@ const speakerNotes=[
 'Cuando el médico no especialista duda, ocurren dos tragedias. La primera es el sobrecosto: se ordenan rayos X, TACs o ecocardiogramas urgentes solo para descartar dudas acústicas básicas, saturando hospitales. La segunda es la derivación tardía: el paciente que se va a casa con un soplo no detectado y regresa meses después descompensado a cuidados intensivos.',
 'En el mercado actual solo existen dos extremos ineficientes: estetoscopios electrónicos extranjeros de 300 a 600 dólares, inaccesibles para la red de atención primaria; o gadgets de pulsera que inventan signos vitales simulados. SpiroScan AI llena este vacío: hardware digital I2S accesible, fabricación local y honestidad clínica verificable.',
 'Para materializar este concepto, SpiroScan AI integra cuatro capacidades esenciales. Primero, captura digital por bus I2S que resalta los graves y agudos sin pérdidas. Segundo, memoria local en LittleFS para que el médico pueda pausar, volver a escuchar y medir sin prisa. Tercero, modelos convolucionales de IA que clasifican sibilancias y patrones compatibles con soplos. Y cuarto, un motor de triaje determinista que genera un reporte clínico oficial en PDF en la misma consulta.',
-'Nuestra propuesta se distingue por cuatro pilares irrenunciables. El primero es un hardware híbrido abierto con ESP32 de bajo costo. El segundo es un triaje determinista basado en guías FDA y NICE donde los síntomas de alarma tienen prioridad absoluta sobre los números. El tercero es honestidad clínica radical: jamás inventamos SpO2 ni signos vitales falsos; si falta calidad, el sistema activa un semáforo gris de datos insuficientes. Y finalmente, un ecosistema completo con app móvil a 60 cuadros por segundo y un modelo de lenguaje local sin filtración de datos.'
+'A nivel de ingeniería, combinamos hardware abierto con un microcontrolador ESP32 de doble núcleo y sensores I2S e I2C de bajo costo. Esto se conecta a una aplicación móvil a 60 cuadros por segundo con un torso interactivo de auscultación guiada y un modelo de lenguaje local LLaMA 3.2 que explica los hallazgos en la clínica sin enviar datos de pacientes a servidores en la nube.',
+'Nuestra ética biomédica se sustenta en directrices de la FDA y NICE. El triaje es determinista: si un paciente tiene disnea aguda o dolor opresivo de pecho, el semáforo activa ROJO inmediato sin importar si los números parecen estables. Además, gestionamos la incertidumbre con honestidad radical: si un sensor no está calibrado, marcamos datos insuficientes; jamás inventamos SpO2 ni signos vitales falsos.',
+'Pasando a la viabilidad económica, el costo de fabricar un equipo SpiroScan AI es de exactamente Q1,149.87, equivalente a unos 147 dólares. Esto incluye el microcontrolador, los sensores, la batería recargable, la carcasa aditiva y un fondo de garantía industrial. Frente a los estetoscopios importados de 400 a 600 dólares, nuestro precio de venta de Q1,786 genera un ahorro superior al 55% y un margen neto directo de Q546 por equipo.',
+'Para acelerar la adopción diseñamos cuatro planes comerciales. El plan Consultorio con compra directa de Q2,000; el plan en 12 cuotas con Q0 de pago inicial y mensualidades de Q463; el plan Clínica de 3 equipos por Q5,399; y el plan Comunitario en alquiler puro por Q504 al mes para brigadas u ONGs. Q0 inicial permite que un médico comience de inmediato sin barreras de capital, manteniendo el modelo plenamente autosostenible.',
+'Nuestra corrida financiera a 12 meses contempla gastos fijos operativos de Q32,575 mensuales. El hito crítico se alcanza en el Mes 8 con 103 suscriptores activos, momento en que el flujo pasa a terreno positivo con +Q2,815 netos mensuales, escalando a +Q27,397 al Mes 12 con 195 equipos colocados y más de Q600,000 en facturación anual. El capital de trabajo necesario antes del break-even es un valle de caja de Q152,183 en el Mes 7.',
+'El verdadero valor de SpiroScan AI es su retorno social en salud pública: apoyar al médico general en puestos de salud rurales para descongestionar hospitales y salvar vidas. Nuestra hoja de ruta tiene la Fase 1 validada en laboratorio, la Fase 2 inmediata de calibración óptica en fantoma, y la Fase 3 de despliegue piloto en centros comunitarios. SpiroScan es un segundo par de oídos donde más se necesita.'
 ];const line=$('timeline'),index=$('indexList'),wipe=$('wipe'),overlays=[...document.querySelectorAll('.overlay')];slides.forEach((s,i)=>{if(i)s.setAttribute('aria-hidden','true');const part=document.createElement('i');line.appendChild(part);const b=document.createElement('button');b.innerHTML='<b>'+String(i+1).padStart(2,'0')+' / <span class="index-time">'+timings[i]+' s</span></b><span>'+names[i]+'</span>';b.onclick=()=>{closeModal();go(i)};index.appendChild(b);const label=document.createElement('label'),title=document.createElement('span'),input=document.createElement('input');title.textContent=String(i+1).padStart(2,'0')+' · '+names[i];input.type='number';input.min='5';input.max='1800';input.step='1';input.placeholder='Global';input.value=overrides[i]??'';input.setAttribute('aria-label','Segundos para '+names[i]);label.append(title,input);$('perActTimes').appendChild(label)});
 function clock(sec){let n=Math.max(0,Math.ceil(sec)),h=Math.floor(n/3600),m=Math.floor(n%3600/60),r=String(n%60).padStart(2,'0');return h?h+':'+String(m).padStart(2,'0')+':'+r:m+':'+r}function refreshTimingLabels(){[...index.children].forEach((b,i)=>{b.querySelector('.index-time').textContent=clock(timings[i])});let total=timings.reduce((a,b)=>a+b,0);$('sequenceDurationText').textContent='SECUENCIA · '+clock(total);$('timingSummary').textContent=N+' actos · '+clock(total)+' en total · bucle '+(loopEnabled?'activado':'desactivado')}
 function updateUI(){document.body.dataset.skin=slides[current].dataset.skin;$('actNo').textContent=String(current+1).padStart(2,'0');$('prevBtn').disabled=!loopEnabled&&current===0;$('nextBtn').disabled=!loopEnabled&&current===N-1;$('pauseBtn').textContent=running?'PAUSAR Ⅱ':'REANUDAR ▶';$('pauseBtn').classList.toggle('paused',!running);line.querySelectorAll('i').forEach((i,n)=>i.className=n<current?'past':n===current?'active':'');$('timeText').textContent=clock(remaining);$('loopIndicator').style.display=loopEnabled?'inline':'none';$('clockRing').style.strokeDashoffset=String(Math.max(0,Math.min(100,100-remaining/timings[current]*100)));$('notesTitle').textContent=names[current].toUpperCase();$('notesText').textContent=speakerNotes[current];document.title='SpiroScan AI · '+names[current]+' · '+$('timeText').textContent}
